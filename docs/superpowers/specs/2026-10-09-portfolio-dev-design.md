@@ -60,6 +60,23 @@ Phương án B (thêm khối sơ đồ kiến trúc) để sau, ngoài phạm vi
 - `assets/cv/CV-NguyenThaiVinh-EN.pdf` ← **bản tiếng Anh mới**, dịch từ bản tiếng Việt, cùng bố cục, 2 trang.
 - Giữ tên file như site cũ để `i18n.js` không phải sửa.
 
+### 3.5 Hiệu ứng (bổ sung, đã duyệt) — ý tưởng từ 21st.dev và Jitter, dựng bằng CSS/JS thuần
+
+Không React, không Tailwind, không thư viện animation. Nới có chủ ý luật "chuyển động chỉ 3 chỗ" của site cũ.
+
+| Vị trí | Hiệu ứng | Ý tưởng gốc |
+|---|---|---|
+| Hero | Câu định vị hiện dần từng cụm chữ (blur + translate → rõ), **một lần** khi tải. Nền lưới chấm mảnh, mask radial mờ ra mép, **tĩnh** | 21st *Blur Fade*, *Dot Pattern* |
+| Cách tôi làm việc | SVG vòng lặp 3 nút Đặt luật → Chạy agent → Kiểm chứng; chấm sáng chạy dọc vòng, tới nút nào nút đó sáng. Nhãn là HTML (`data-i18n`) nên đổi VI/EN. Chỉ chạy khi khối trong viewport (IntersectionObserver), dừng khi ra ngoài. Danh sách 3 tầng chi tiết giữ nguyên bên dưới | Jitter vòng lặp |
+| Thẻ dự án | Quầng sáng `--accent` theo con trỏ (biến CSS `--mx/--my` do JS đặt, chỉ trên thiết bị có hover) + viền sáng chạy quanh thẻ khi hover. Giữ `scale(1.02)` của ảnh | 21st *Spotlight Card*, *Border Beam* |
+| Kỹ năng | Dải tên công nghệ trôi ngang, dừng khi hover; bản nhân đôi để lặp có `aria-hidden="true"`. Danh sách 4 nhóm đầy đủ giữ nguyên bên dưới | 21st *Marquee* |
+
+Giới hạn bắt buộc:
+- JS thêm ≤ 3KB chưa nén; tổng `scripts/*.js` được tải < 15KB chưa nén. PageSpeed mobile ≥ 90, CLS không tăng.
+- Nội dung đọc được khi tắt JS. Trạng thái nghỉ của mọi phần tử **không** dùng `opacity` < 1 (bẫy tương phản README site cũ); chuyển cảnh chỉ dùng `transform`/`filter`/`opacity` trong lúc chạy.
+- `prefers-reduced-motion: reduce` tắt toàn bộ: hero hiện ngay, vòng lặp tĩnh (3 nút cùng sáng), marquee đứng yên và xuống dòng.
+- Vẫn cấm: số đếm nhảy, hạt bay, cursor tùy biến, parallax, blob/aurora.
+
 ## 4. Nội dung song ngữ — dùng đúng nguyên văn
 
 Cấu trúc key giữ y như `content/en.json` hiện tại. Hai file phải cùng bộ key (build sẽ báo nếu lệch).
@@ -235,9 +252,11 @@ Chỉ `work.title` đổi như mục 4.4.
 4. Lighthouse local (mobile): Performance ≥ 90, Accessibility, SEO, Best Practices không tụt so với site cũ.
 5. Tải hai CV (EN, VI) từ trang; mở PDF xem đúng bản AI Engineer.
 6. JSON-LD và thẻ og mang chức danh mới; `og:image` sinh lại với màu và chức danh mới.
-7. Rà lại toàn bộ chữ trên trang: không còn sót chữ "marketing executive" ở chỗ không phải mục kinh nghiệm, không có chữ "RAG".
+7. Hiệu ứng: đúng 4 chỗ ở mục 3.5; tắt hết khi bật reduced-motion; ngân sách JS đạt; không phần tử nào nghỉ ở opacity < 1.
+8. Rà lại toàn bộ chữ trên trang: không còn sót chữ "marketing executive" ở chỗ không phải mục kinh nghiệm, không có chữ "RAG".
 
 ## 6. Ngoài phạm vi
 
 - Sơ đồ kiến trúc (phương án B), domain riêng, GTM/GA4, Box Phone US.
+- Dùng trực tiếp component React của 21st.dev hoặc file Jitter/Lottie (đã chọn dựng lại bằng CSS/SVG).
 - Ảnh chụp nội bộ Shipstar và ảnh app MIA Agent — chờ người dùng gửi, thay sau.
