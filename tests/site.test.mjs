@@ -150,3 +150,12 @@ test('fx: reduced-motion tắt hiệu ứng', async () => {
   }
   assert.match(blocks, /animation:\s*none/);
 });
+
+/* ── Task 6: CV ───────────────────────────────────────────── */
+
+test('cv: hai file tồn tại và là PDF', async () => {
+  for (const lang of ['EN', 'VI']) {
+    const buf = await readFile(p(`assets/cv/CV-NguyenThaiVinh-${lang}.pdf`)).catch(() => Buffer.alloc(0));
+    assert.equal(buf.subarray(0, 4).toString('latin1'), '%PDF', `CV ${lang} thiếu hoặc không phải PDF`);
+  }
+});
