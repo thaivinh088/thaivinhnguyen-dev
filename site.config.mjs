@@ -8,7 +8,7 @@
  * dòng này, chạy `npm run build`, push — canonical, og:url, og:image và
  * sitemap đều bám theo. Không có dấu / ở cuối.
  */
-export const SITE_URL = 'https://thaivinhnguyen.vercel.app';
+export const SITE_URL = 'https://thaivinhnguyen-dev.vercel.app';
 
 /**
  * TODO — CHƯA CÓ GTM CONTAINER ID.

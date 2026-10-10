@@ -39,3 +39,51 @@ test('ảnh: đủ 8 file webp cho 4 slug', async () => {
     }
   }
 });
+
+/* ── Task 3: nội dung và output build ─────────────────────── */
+
+const SITE = 'https://thaivinhnguyen-dev.vercel.app';
+
+test('content: hero', async () => {
+  const [en, vi] = [await readJson('en'), await readJson('vi')];
+  assert.equal(en.hero.role, 'Software Engineer · LLM & AI Automation');
+  assert.equal(vi.hero.role, 'Software Engineer · LLM & AI Automation');
+  assert.deepEqual(en.hero.stats.map(s => s.value), ['143', '500+', '1,000+', '8,684']);
+  assert.deepEqual(vi.hero.stats.map(s => s.value), ['143', '500+', '1.000+', '8.684']);
+});
+
+test('content: dự án và ba tầng', async () => {
+  for (const lang of ['en', 'vi']) {
+    const j = await readJson(lang);
+    assert.deepEqual(j.work.projects.map(x => x.slug), SLUGS);
+    assert.deepEqual(j.layers.items.map(x => x.id), ['specify', 'run', 'verify']);
+  }
+});
+
+test('content: luật chữ', async () => {
+  const all = JSON.stringify(await readJson('en')) + JSON.stringify(await readJson('vi'));
+  assert.doesNotMatch(all, /\bRAG\b/);
+  assert.doesNotMatch(all, /onlyflow|box phone/i);
+  assert.doesNotMatch(all, /github\.com/i);
+  assert.match(all, /mentor/i);
+  assert.match(all, /Hermes Agent/);
+});
+
+test('build: không sót chuỗi site cũ', async () => {
+  const html = await readBuilt();
+  for (const s of ['tpplastic', 'obbgel', 'oceantrading', 'Website &amp; Growth', 'Website & Growth']) {
+    assert.ok(!html.toLowerCase().includes(s.toLowerCase()), `còn sót "${s}"`);
+  }
+  const exp = html.slice(html.indexOf('id="experience"'), html.indexOf('id="about"'));
+  const outside = html.replace(exp, '');
+  assert.ok(!outside.includes('Digital Marketing Executive'), 'Digital Marketing Executive ngoài mục kinh nghiệm');
+});
+
+test('build: SEO trỏ domain mới', async () => {
+  const html = await readBuilt();
+  const attr = re => (html.match(re) || [])[1] || '';
+  assert.ok(attr(/rel="canonical" href="([^"]+)"/).startsWith(SITE));
+  assert.ok(attr(/property="og:url" content="([^"]+)"/).startsWith(SITE));
+  assert.ok(attr(/property="og:image" content="([^"]+)"/).startsWith(SITE));
+  assert.match(html, /"jobTitle":"Software Engineer"/);
+});

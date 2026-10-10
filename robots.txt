@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thaivinhnguyen.vercel.app/sitemap.xml
+Sitemap: https://thaivinhnguyen-dev.vercel.app/sitemap.xml

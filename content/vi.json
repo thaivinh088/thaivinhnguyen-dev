@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Nguyễn Thái Vinh — Digital Marketing Executive",
-    "description": "Marketer tự dựng website, tự làm technical SEO và tracking, rồi tự chạy quảng cáo. Hiện phụ trách 8 website và 11 kênh social tại TP Plastic."
+    "title": "Nguyễn Thái Vinh — Software Engineer · LLM & AI Automation",
+    "description": "Kỹ sư phần mềm đưa tính năng LLM vào production — copilot gọi tool, vision, MCP server — và xây chúng bằng Claude Code, Codex. Nền tảng e-commerce và martech."
   },
   "nav": {
     "how": "Cách làm việc",
@@ -12,81 +12,80 @@
     "contact": "Liên hệ"
   },
   "hero": {
-    "name": "NGUYỄN THÁI VINH",
-    "role": "Digital Marketing Executive · Website & Growth",
-    "statement": "Tôi dựng website, gắn tracking, rồi chạy quảng cáo đổ traffic vào chính website đó.",
-    "sub": "Kỹ sư phần mềm chuyển sang marketing. Hơn 2 năm phụ trách trọn phễu marketing số cho một nhà sản xuất nhựa B2B đang mở thị trường Mỹ — không agency, không đội dev.",
-    "ctaPrimary": "Xem công việc",
+    "name": "Nguyễn Thái Vinh",
+    "role": "Software Engineer · LLM & AI Automation",
+    "statement": "Tôi đưa tính năng LLM vào production, và xây chúng bằng chính AI agent.",
+    "sub": "Cử nhân Kỹ thuật Phần mềm. Tham gia xây copilot gọi tool, đọc hóa đơn bằng vision và AI soạn listing trên nền tảng 3PL Shipstar; tự xây MCP server cho AI agent trên MIA Platform. Hơn 2 năm làm e-commerce nên hiểu bài toán của Founder, vận hành và marketing.",
+    "ctaPrimary": "Xem dự án",
     "ctaSecondary": "Tải CV (PDF)",
     "stats": [
       {
-        "value": "8",
-        "label": "website đang phụ trách"
+        "value": "143",
+        "label": "hàm database copilot gọi làm tool"
       },
       {
-        "value": "11",
-        "label": "kênh social"
+        "value": "500+",
+        "label": "commit lên production Shipstar"
       },
       {
-        "value": "4",
-        "label": "hệ thống vận hành"
+        "value": "1.000+",
+        "label": "commit điều phối agent trên MIA"
       },
       {
-        "value": "$1.000+",
-        "label": "ngân sách ads/tháng"
+        "value": "8.684",
+        "label": "chứng từ chuyển bằng Python, lệch 0"
       }
     ]
   },
   "layers": {
     "eyebrow": "CÁCH TÔI LÀM VIỆC",
-    "title": "Ba tầng tôi tự làm",
-    "intro": "Hầu hết marketer chỉ làm tầng thứ ba và phụ thuộc người khác cho hai tầng đầu. Tôi làm cả ba, nên không có khoảng chờ giữa các bên.",
+    "title": "Vòng lặp tôi vận hành agent",
+    "intro": "AI agent viết code rất nhanh, nhưng code chạy được chưa chắc đã đáng tin. Tôi bọc agent trong ba bước, và không bước nào được bỏ qua.",
     "items": [
       {
-        "id": "build",
-        "name": "DỰNG",
-        "desc": "Dựng website từ cấu trúc thông tin, nội dung, WordPress đến technical SEO và launch.",
+        "id": "specify",
+        "name": "ĐẶT LUẬT",
+        "desc": "Viết spec, hợp đồng API và luật cho agent trước khi giao việc, để agent biết được làm gì và không được đụng vào đâu.",
         "tools": [
-          "WordPress",
-          "HTML / CSS",
-          "Technical SEO",
-          "Core Web Vitals",
-          "Responsive mobile-first"
+          "CLAUDE.md",
+          "AGENTS.md",
+          "Spec & plan",
+          "zod contracts",
+          "Skills"
         ],
-        "proof": "tpplasticusa.com, obbgel.com, oceantradingexpress.com"
+        "proof": "AGENTS.md cho Codex trên Shipstar; hợp đồng API của MIA Platform"
       },
       {
-        "id": "measure",
-        "name": "ĐO",
-        "desc": "Gắn hệ thống đo lường để biết kênh nào tạo ra đơn chốt, không chỉ đếm lượt click.",
+        "id": "run",
+        "name": "CHẠY AGENT",
+        "desc": "Chia việc cho nhiều phiên Claude Code và Codex chạy song song trên git worktree riêng, một phiên quản lý giữ sổ quyết định.",
         "tools": [
-          "Google Tag Manager",
-          "GA4",
-          "Looker Studio",
-          "Search Console",
-          "Zoho",
-          "Odoo",
-          "MISA"
+          "Claude Code",
+          "Codex",
+          "git worktree",
+          "MCP",
+          "Sub-agents"
         ],
-        "proof": "Hệ thống đo lường đầu tiên của TP Plastic"
+        "proof": "1.000+ commit trên MIA Platform, chia làn FE / BE"
       },
       {
-        "id": "acquire",
-        "name": "KÉO",
-        "desc": "Chạy quảng cáo và nội dung đổ traffic vào đúng trang mình đã dựng và đã gắn tracking.",
+        "id": "verify",
+        "name": "KIỂM CHỨNG",
+        "desc": "Không merge khi chưa có bằng chứng: test viết trước, CI chạy trên PostgreSQL thật, kiểm thử trình duyệt và quét bí mật.",
         "tools": [
-          "Meta Ads",
-          "Google Ads (Search, Display)",
-          "A/B testing",
-          "CTR / CPC / CPA / ROAS"
+          "TDD",
+          "Vitest",
+          "Playwright",
+          "GitHub Actions",
+          "secretlint"
         ],
-        "proof": "Tỷ lệ chuyển đổi lead tăng 35%"
+        "proof": "pipeline CI của MIA Platform"
       }
     ]
   },
   "work": {
     "eyebrow": "DỰ ÁN",
-    "title": "Dự án tiêu biểu",
+    "title": "Những gì tôi đã đưa lên chạy thật",
     "viewSite": "Xem site",
     "projects": [
       {
@@ -94,60 +93,59 @@
         "domain": "shipstar.vn",
         "url": "https://shipstar.vn",
         "image": "assets/img/work-shipstar.webp",
-        "meta": "06–08/2026 · Nhóm 3 người · Product & Web",
-        "desc": "Nền tảng 3PL fulfillment xuyên biên giới Việt Nam → Mỹ: nhập kho, pick & pack, nhãn vận chuyển đa hãng, hải quan, đối soát phí và cổng seller.",
+        "meta": "06/2026 – 30/09/2026 · Nhóm 3 người · Product & Developer",
+        "desc": "Tính năng AI trên nền tảng 3PL xuyên biên giới Việt Nam → Mỹ đang chạy production.",
         "bullets": [
-          "Thiết kế UI/UX và dựng front-end cho seller portal, luồng tạo nhãn vận chuyển và màn hình quản lý kho.",
-          "Ưu tiên mobile-first vì nhân viên kho thao tác trên điện thoại giữa lúc đóng hàng.",
-          "Thiết kế lại luồng nghiệp vụ kho vận: biến quy trình phức tạp (nhập kho, chia đơn, đóng gói, đối chiếu phí ship theo từng hãng) thành luồng thao tác tối giản.",
-          "Tự làm toàn bộ website giới thiệu: định vị sản phẩm, nội dung, technical SEO, GTM/GA4 và luồng thu lead đăng ký seller."
+          "Copilot nội bộ gọi 143 hàm database làm tool; mọi thao tác ghi phải được người dùng duyệt trước khi chạy.",
+          "Đọc ảnh hóa đơn bằng vision thành dòng hóa đơn có cấu trúc và tự đối chiếu tổng tiền; phân loại email và soạn trả lời.",
+          "AI soạn listing Shopee / TikTok Shop từ tên hoặc link: Firecrawl đọc nguồn, Claude soạn nội dung và chọn ngành hàng; hàng tạo ở trạng thái ẩn / nháp chờ người duyệt.",
+          "Script Python chuyển 8.684 chứng từ MISA sang Shipstar, đối soát lệch 0; import khoảng 650 SKU kèm vị trí kho, kệ."
         ],
-        "alt": "Trang chủ shipstar.vn — nền tảng 3PL fulfillment xuyên biên giới"
+        "alt": "Trang chủ shipstar.vn — nền tảng 3PL xuyên biên giới"
       },
       {
-        "slug": "tpplasticusa",
-        "domain": "tpplasticusa.com",
-        "url": "https://tpplasticusa.com",
-        "image": "assets/img/work-tpplasticusa.webp",
-        "meta": "3 tháng · 1 người · Toàn bộ dự án",
-        "desc": "Website doanh nghiệp B2B mở thị trường xuất khẩu Mỹ, làm từ con số 0.",
+        "slug": "mia",
+        "domain": "miaai.vn",
+        "url": "https://miaai.vn",
+        "image": "assets/img/work-mia.webp",
+        "meta": "09–10/2026 · Cá nhân · Full-stack",
+        "desc": "Nền tảng bán và cấp phát trợ lý AI: website, cổng khách hàng và trang quản trị.",
         "bullets": [
-          "Technical SEO cho tìm kiếm quốc tế: cấu trúc site, metadata, internal link.",
-          "Chatbot sàng lọc khách 24/7, giữ lại các lượt hỏi ngoài giờ trước đây bị mất do lệch múi giờ Việt Nam – Mỹ.",
-          "Tracking GTM/GA4 đầy đủ, truy được từng lượt hỏi hàng về đúng kênh nguồn.",
-          "Landing page hướng chuyển đổi và form hỏi hàng tinh giản cho khách B2B."
+          "Agent API và MCP server tự viết (JSON-RPC 2.0, không thư viện ngoài): AI agent bên ngoài chỉ đọc bằng khóa có phạm vi, mọi thao tác ghi thành đề xuất chờ người duyệt.",
+          "Thanh toán VietQR, cấp phát gói trợ lý và control plane cấp quota qua cổng LLM API.",
+          "Một phiên Claude Code quản lý chia việc cho các phiên FE / BE theo hợp đồng API — hơn 1.000 commit.",
+          "Fastify · Drizzle · PostgreSQL · React · Docker Compose · Caddy · GitHub Actions."
         ],
-        "alt": "Trang chủ tpplasticusa.com — website B2B sản xuất bao bì nhựa"
+        "alt": "Trang chủ miaai.vn — nền tảng trợ lý AI MIA"
       },
       {
-        "slug": "obbgel",
-        "domain": "obbgel.com",
-        "url": "https://obbgel.com",
-        "image": "assets/img/work-obbgel.webp",
-        "meta": "1 tháng · 1 người · Thiết kế & Dựng",
-        "desc": "Website sản phẩm định vị cao cấp, nơi phần thiết kế phải đỡ được mức giá bán.",
+        "slug": "mia-agent",
+        "domain": "MIA Agent · desktop",
+        "url": "https://miaai.vn",
+        "image": "assets/img/work-mia-agent.webp",
+        "meta": "09/2026 · Cùng mentor · Đóng gói & Việt hóa",
+        "desc": "Trợ lý AI desktop đóng gói từ Hermes Agent, agent mã nguồn mở của Nous Research.",
         "bullets": [
-          "Tự thiết kế toàn bộ hệ thống thị giác bằng Photoshop: layout, banner, hình sản phẩm.",
-          "Dựng responsive chuẩn pixel, giữ trọn bố cục từ 320px đến desktop màn rộng.",
-          "Tổ chức điều hướng dẫn khách về trang sản phẩm và liên hệ, cắt các nhánh gây phân tán.",
-          "Toàn bộ ấn phẩm làm in-house, chi phí thiết kế thuê ngoài bằng 0."
+          "Đóng gói và Việt hóa thành ứng dụng Electron với backend Python.",
+          "Agent có tool calling, memory, skill, MCP, lịch cron và sub-agent; chọn được nhiều nhà cung cấp LLM.",
+          "Nghiên cứu và viết tài liệu tiếng Việt về kiến trúc agent: lớp LLM, công cụ, memory, nén context, bảo mật."
         ],
-        "alt": "Trang chủ obbgel.com — website sản phẩm định vị cao cấp"
+        "alt": "Ứng dụng desktop MIA Agent"
       },
       {
-        "slug": "oceantrading",
-        "domain": "oceantradingexpress.com",
-        "url": "https://oceantradingexpress.com",
-        "image": "assets/img/work-oceantrading.webp",
-        "meta": "1 tháng · 1 người · Landing page",
-        "desc": "Landing page chuyển đổi cho dịch vụ thương mại quốc tế.",
+        "slug": "tinhhoa",
+        "domain": "tinhhoa.tech",
+        "url": "https://tinhhoa.tech",
+        "image": "assets/img/work-tinhhoa.webp",
+        "meta": "08/2026 · Xây cùng Claude Code",
+        "desc": "Website TMĐT B2B bán và cho thuê thiết bị văn phòng.",
         "bullets": [
-          "Chuyển danh mục dịch vụ phức tạp thành kiến trúc thông tin bằng icon, khách quét hiểu trong dưới một phút.",
-          "Tối ưu vị trí và thứ bậc CTA để khách liên hệ ngay trong màn hình đầu tiên.",
-          "Tích hợp Zalo, email và điện thoại để rút ngắn thời gian phản hồi.",
-          "Thẩm mỹ hướng uy tín, hiệu chỉnh cho đối tác thương mại quốc tế."
+          "Giỏ hàng, đặt hàng, tra cứu đơn và form thu lead.",
+          "Thuê thiết bị có cọc, kiểm tra trùng lịch để một máy không bị cho thuê hai lần.",
+          "Trang quản trị và email báo đơn mới qua Resend.",
+          "Next.js 15 · Supabase (PostgreSQL, Auth, RLS) · Vercel."
         ],
-        "alt": "Landing page oceantradingexpress.com — dịch vụ thương mại quốc tế"
+        "alt": "Trang chủ tinhhoa.tech — thiết bị công nghệ cho doanh nghiệp"
       }
     ]
   },
@@ -156,49 +154,58 @@
     "title": "Năng lực chuyên môn",
     "groups": [
       {
-        "label": "Quảng cáo & Đo lường",
+        "label": "AI agent & LLM",
         "items": [
-          "Meta Ads",
-          "Google Ads (Search, Display)",
+          "Claude API (tool calling, vision, streaming, prompt caching)",
+          "MCP server",
+          "Claude Code",
+          "Codex",
+          "Truy xuất dữ liệu qua tool",
+          "Human-in-the-loop",
+          "CLAUDE.md / AGENTS.md"
+        ]
+      },
+      {
+        "label": "Backend & dữ liệu",
+        "items": [
+          "Python",
+          "TypeScript",
+          "Node.js",
+          "Fastify",
+          "REST API",
+          "PostgreSQL",
+          "Supabase",
+          "Drizzle ORM",
+          "Parsing Excel / CSV",
+          "pg_trgm + unaccent"
+        ]
+      },
+      {
+        "label": "Frontend & DevOps",
+        "items": [
+          "React",
+          "Next.js",
+          "Docker Compose",
+          "Caddy",
+          "GitHub Actions",
+          "Vercel",
+          "Vitest",
+          "Playwright",
+          "TDD"
+        ]
+      },
+      {
+        "label": "Domain e-commerce",
+        "items": [
+          "Shopee / TikTok Shop API",
+          "Temu",
+          "Walmart",
+          "Nhãn vận chuyển",
+          "Báo cáo lãi lỗ TMĐT",
+          "Meta & Google Ads",
           "GA4",
-          "Google Tag Manager",
-          "Looker Studio",
-          "Search Console",
-          "CTR / CPC / CPA / ROAS",
-          "A/B testing"
-        ]
-      },
-      {
-        "label": "SEO & Website",
-        "items": [
-          "Technical SEO (Core Web Vitals, metadata, cấu trúc site)",
-          "On-page SEO",
-          "SEO đa thị trường",
-          "WordPress",
-          "HTML / CSS",
-          "Responsive mobile-first",
-          "Chatbot & form thu lead"
-        ]
-      },
-      {
-        "label": "Hệ thống vận hành",
-        "items": [
-          "Zoho",
-          "Odoo",
           "MISA",
-          "Shipstar (nền tảng nội bộ công ty tự phát triển)",
-          "Pipeline & phân phối lead",
-          "Báo cáo phễu bán hàng"
-        ]
-      },
-      {
-        "label": "Thiết kế",
-        "items": [
-          "Adobe Photoshop",
-          "Banner & ấn phẩm social",
-          "Premiere Pro",
-          "CapCut",
-          "Bộ nhận diện thương hiệu"
+          "Zoho"
         ]
       }
     ]
@@ -215,11 +222,18 @@
         "nested": false
       },
       {
-        "period": "06–08/2026",
-        "title": "Product & Web (Shipstar)",
+        "period": "06/2026 – 30/09/2026",
+        "title": "Product & Developer (Shipstar)",
         "company": "TP Plastic",
         "type": "Dự án nội bộ, kiêm nhiệm",
         "nested": true
+      },
+      {
+        "period": "07/2026",
+        "title": "EstateHub CRM — Next.js, Supabase, Web Push",
+        "company": "Cá nhân",
+        "type": "Dự án cá nhân",
+        "nested": false
       },
       {
         "period": "06/2023 – 12/2023",
@@ -253,13 +267,13 @@
   "about": {
     "eyebrow": "GIỚI THIỆU",
     "title": "Giới thiệu",
-    "body": "Tôi học kỹ thuật phần mềm rồi chuyển sang marketing. Nghĩa là việc gì tự làm được thì tôi không đưa cho người khác. Phần tôi thích nhất nằm ở chỗ giáp ranh giữa marketing và sản phẩm — như khi làm Shipstar, tôi ngồi cùng những người trực tiếp đóng hàng và biến một quy trình dài dòng thành thứ họ dùng được bằng một tay trên điện thoại. Thứ tôi làm tốt là làm cho tầng kỹ thuật chạy được để tầng marketing có chỗ đứng: technical SEO sửa đúng chỗ đang hỏng thay vì sửa chỗ dễ báo cáo, tracking trả lời được kênh nào chốt đơn, landing page làm cho người mua chứ không làm cho bản brief.",
+    "body": "Tôi học kỹ thuật phần mềm, rồi làm marketing hơn hai năm cho một nhà sản xuất bán hàng sang Mỹ. Những năm đó dạy tôi người dùng một tính năng AI thực sự cần gì: đội vận hành cần nhập hóa đơn nhanh hơn, sale cần tra hàng mà không phải hỏi ai, chủ shop cần lên listing mà không gõ tay. Năm 2026 tôi quay lại viết code, lần này cùng AI agent. Việc tôi làm tốt không nằm ở chỗ gõ prompt, mà ở chỗ đặt luật và dựng bước kiểm chứng để thứ agent làm ra đáng tin: thao tác ghi vào database luôn có người duyệt, và không commit nào lên production khi chưa có test.",
     "portraitAlt": "Ảnh chân dung Nguyễn Thái Vinh"
   },
   "contact": {
     "eyebrow": "LIÊN HỆ",
-    "title": "Đang tìm vị trí Digital Marketing / Growth",
-    "sub": "Ưu tiên B2B, xuyên biên giới, hoặc bất cứ mảng nào bán vào thị trường Mỹ.",
+    "title": "Đang tìm vị trí Software / AI Engineer",
+    "sub": "Ưu tiên e-commerce, martech hoặc tự động hóa vận hành bằng AI.",
     "emailLabel": "Email",
     "email": "thaivinhnguyen088@gmail.com",
     "phoneLabel": "Điện thoại",

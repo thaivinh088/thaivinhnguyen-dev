@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Nguyen Thai Vinh — Digital Marketing Executive",
-    "description": "A marketer who builds the websites, wires up the tracking, then runs the campaigns. Currently running 8 websites and 11 social channels at TP Plastic."
+    "title": "Nguyen Thai Vinh — Software Engineer · LLM & AI Automation",
+    "description": "A software engineer shipping LLM features to production — tool-calling copilots, vision, MCP servers — built with Claude Code and Codex. Background in e-commerce and martech."
   },
   "nav": {
     "how": "How I work",
@@ -12,81 +12,80 @@
     "contact": "Contact"
   },
   "hero": {
-    "name": "NGUYEN THAI VINH",
-    "role": "Digital Marketing Executive · Web & Growth",
-    "statement": "I build the website, wire up the tracking, then run the campaigns that fill it.",
-    "sub": "A software engineer who moved into marketing. 2+ years owning the complete digital funnel for a B2B plastics manufacturer opening the US market — no agency, no dev team.",
+    "name": "Nguyen Thai Vinh",
+    "role": "Software Engineer · LLM & AI Automation",
+    "statement": "I ship LLM features to production, and I build them with AI agents.",
+    "sub": "Software engineering graduate. On Shipstar, a production 3PL platform, I helped build a tool-calling copilot, vision invoice reading and AI marketplace listings; on MIA Platform I built the MCP server that lets outside AI agents work safely. Two years in e-commerce taught me what founders, ops and marketing actually need.",
     "ctaPrimary": "See the work",
     "ctaSecondary": "Download CV (PDF)",
     "stats": [
       {
-        "value": "8",
-        "label": "websites managed"
+        "value": "143",
+        "label": "database functions the copilot calls as tools"
       },
       {
-        "value": "11",
-        "label": "social channels"
+        "value": "500+",
+        "label": "commits shipped to Shipstar production"
       },
       {
-        "value": "4",
-        "label": "business systems"
+        "value": "1,000+",
+        "label": "commits orchestrating agents on MIA"
       },
       {
-        "value": "$1,000+",
-        "label": "monthly ad budget"
+        "value": "8,684",
+        "label": "records migrated in Python, zero variance"
       }
     ]
   },
   "layers": {
     "eyebrow": "HOW I WORK",
-    "title": "Three layers I own myself",
-    "intro": "Most marketers work only on the third layer and depend on someone else for the first two. I do all three, so nothing waits on a handoff.",
+    "title": "The loop I run my agents on",
+    "intro": "AI agents write code fast, but working code is not the same as trustworthy code. I wrap every agent in three steps, and none of them gets skipped.",
     "items": [
       {
-        "id": "build",
-        "name": "BUILD",
-        "desc": "Build the site from information architecture and copy through WordPress, technical SEO and launch.",
+        "id": "specify",
+        "name": "SPECIFY",
+        "desc": "Write the spec, the API contract and the agent rules before handing anything off, so the agent knows what it may do and what it must not touch.",
         "tools": [
-          "WordPress",
-          "HTML / CSS",
-          "Technical SEO",
-          "Core Web Vitals",
-          "Responsive mobile-first"
+          "CLAUDE.md",
+          "AGENTS.md",
+          "Spec & plan",
+          "zod contracts",
+          "Skills"
         ],
-        "proof": "tpplasticusa.com, obbgel.com, oceantradingexpress.com"
+        "proof": "AGENTS.md for Codex on Shipstar; MIA Platform's API contracts"
       },
       {
-        "id": "measure",
-        "name": "MEASURE",
-        "desc": "Wire up measurement that answers which channel closed the deal, not just which one got the click.",
+        "id": "run",
+        "name": "RUN",
+        "desc": "Split work across parallel Claude Code and Codex sessions on separate git worktrees, with a manager session keeping the decision ledger.",
         "tools": [
-          "Google Tag Manager",
-          "GA4",
-          "Looker Studio",
-          "Search Console",
-          "Zoho",
-          "Odoo",
-          "MISA"
+          "Claude Code",
+          "Codex",
+          "git worktree",
+          "MCP",
+          "Sub-agents"
         ],
-        "proof": "TP Plastic's first measurement stack"
+        "proof": "1,000+ commits on MIA Platform across FE / BE lanes"
       },
       {
-        "id": "acquire",
-        "name": "ACQUIRE",
-        "desc": "Run the ads and content that drive traffic into the pages I built and instrumented.",
+        "id": "verify",
+        "name": "VERIFY",
+        "desc": "Nothing merges without evidence: tests first, CI against a real PostgreSQL, browser tests and secret scanning.",
         "tools": [
-          "Meta Ads",
-          "Google Ads (Search, Display)",
-          "A/B testing",
-          "CTR / CPC / CPA / ROAS"
+          "TDD",
+          "Vitest",
+          "Playwright",
+          "GitHub Actions",
+          "secretlint"
         ],
-        "proof": "35% lift in lead conversion rate"
+        "proof": "MIA Platform's CI pipeline"
       }
     ]
   },
   "work": {
     "eyebrow": "SELECTED WORK",
-    "title": "Selected work",
+    "title": "Things I've put into production",
     "viewSite": "View site",
     "projects": [
       {
@@ -94,60 +93,59 @@
         "domain": "shipstar.vn",
         "url": "https://shipstar.vn",
         "image": "assets/img/work-shipstar.webp",
-        "meta": "06–08/2026 · Team of 3 · Product & Web",
-        "desc": "A cross-border 3PL fulfilment platform, Vietnam → US: inbound receiving, pick & pack, multi-carrier labels, customs, cost reconciliation and seller portals.",
+        "meta": "06/2026 – 30/09/2026 · Team of 3 · Product & Developer",
+        "desc": "AI features on a production cross-border 3PL platform, Vietnam → US.",
         "bullets": [
-          "Designed the UI/UX and built the front end for the seller portal, shipping-label flow and warehouse screens.",
-          "Mobile-first by necessity: warehouse staff work from a phone while packing boxes.",
-          "Redesigned the warehouse operating flows — receiving, order splitting, packing, per-carrier cost reconciliation — into something runnable one-handed.",
-          "Delivered the marketing site solo: positioning, copy, technical SEO, GTM/GA4 and the seller sign-up funnel."
+          "An internal copilot that calls 143 database functions as tools; every write needs the user's approval before it runs.",
+          "Vision reads invoice photos into structured line items and checks the totals; email gets classified and a reply drafted.",
+          "AI marketplace listings for Shopee / TikTok Shop from a name or link: Firecrawl reads the source, Claude writes the copy and picks the category; items are created hidden / as drafts for human review.",
+          "Python scripts migrated 8,684 MISA accounting records into Shipstar with zero variance; imported ~650 SKUs with warehouse and shelf locations."
         ],
-        "alt": "shipstar.vn homepage — cross-border 3PL fulfilment platform"
+        "alt": "shipstar.vn homepage — cross-border 3PL platform"
       },
       {
-        "slug": "tpplasticusa",
-        "domain": "tpplasticusa.com",
-        "url": "https://tpplasticusa.com",
-        "image": "assets/img/work-tpplasticusa.webp",
-        "meta": "3 months · Team of 1 · Whole project",
-        "desc": "A B2B corporate site built to open the US export market from a standing start.",
+        "slug": "mia",
+        "domain": "miaai.vn",
+        "url": "https://miaai.vn",
+        "image": "assets/img/work-mia.webp",
+        "meta": "09–10/2026 · Solo · Full-stack",
+        "desc": "A platform that sells and provisions AI assistants: website, customer portal and admin.",
         "bullets": [
-          "Technical SEO for international search: site architecture, metadata, internal linking.",
-          "A 24/7 chatbot that captures after-hours inquiries previously lost to the Vietnam–US timezone gap.",
-          "Full GTM/GA4 tracking, tying every inquiry back to the channel that produced it.",
-          "Conversion-focused landing pages and simplified inquiry forms for B2B buyers."
+          "A hand-written Agent API and MCP server (JSON-RPC 2.0, no external libraries): outside AI agents get read-only, scoped keys, and every write becomes a proposal waiting for human approval.",
+          "VietQR payments, assistant provisioning and a control plane that allocates quota through an LLM API gateway.",
+          "A manager Claude Code session splits work across FE / BE sessions against an API contract — 1,000+ commits.",
+          "Fastify · Drizzle · PostgreSQL · React · Docker Compose · Caddy · GitHub Actions."
         ],
-        "alt": "tpplasticusa.com homepage — B2B plastic packaging manufacturer site"
+        "alt": "miaai.vn homepage — MIA AI assistant platform"
       },
       {
-        "slug": "obbgel",
-        "domain": "obbgel.com",
-        "url": "https://obbgel.com",
-        "image": "assets/img/work-obbgel.webp",
-        "meta": "1 month · Team of 1 · Design & Build",
-        "desc": "A premium product site where the design had to carry the price point.",
+        "slug": "mia-agent",
+        "domain": "MIA Agent · desktop",
+        "url": "https://miaai.vn",
+        "image": "assets/img/work-mia-agent.webp",
+        "meta": "09/2026 · With my mentor · Packaging & localisation",
+        "desc": "A desktop AI assistant packaged from Hermes Agent, Nous Research's open-source agent.",
         "bullets": [
-          "Designed the full visual system in Photoshop: layout, banners, product imagery.",
-          "Pixel-accurate responsive build holding its composition from 320px to widescreen.",
-          "Navigation structured toward product and contact pages, cutting branches that split attention.",
-          "Every asset produced in-house, with zero external design spend."
+          "Packaged and localised into Vietnamese as an Electron app with a Python backend.",
+          "The agent handles tool calling, memory, skills, MCP, cron schedules and sub-agents, across multiple LLM providers.",
+          "Researched and documented the agent architecture in Vietnamese: LLM layer, tools, memory, context compression, security."
         ],
-        "alt": "obbgel.com homepage — premium product website"
+        "alt": "MIA Agent desktop app"
       },
       {
-        "slug": "oceantrading",
-        "domain": "oceantradingexpress.com",
-        "url": "https://oceantradingexpress.com",
-        "image": "assets/img/work-oceantrading.webp",
-        "meta": "1 month · Team of 1 · Landing page",
-        "desc": "A conversion landing page for an international trading service.",
+        "slug": "tinhhoa",
+        "domain": "tinhhoa.tech",
+        "url": "https://tinhhoa.tech",
+        "image": "assets/img/work-tinhhoa.webp",
+        "meta": "08/2026 · Built with Claude Code",
+        "desc": "A B2B e-commerce site that sells and rents office equipment.",
         "bullets": [
-          "Turned a complex service list into an icon-led information architecture scannable in under a minute.",
-          "Optimised CTA placement and hierarchy so contact is possible from the first screen.",
-          "Integrated Zalo, email and phone to shorten response time.",
-          "A credibility-first aesthetic calibrated for international trading partners."
+          "Cart, checkout, order lookup and lead forms.",
+          "Equipment rental with deposits and an availability check so one unit is never double-booked.",
+          "An admin panel and new-order emails through Resend.",
+          "Next.js 15 · Supabase (PostgreSQL, Auth, RLS) · Vercel."
         ],
-        "alt": "oceantradingexpress.com landing page — international trading service"
+        "alt": "tinhhoa.tech homepage — technology equipment for businesses"
       }
     ]
   },
@@ -156,49 +154,58 @@
     "title": "Capabilities",
     "groups": [
       {
-        "label": "Paid Media & Analytics",
+        "label": "AI Agents & LLMs",
         "items": [
-          "Meta Ads",
-          "Google Ads (Search, Display)",
+          "Claude API (tool calling, vision, streaming, prompt caching)",
+          "MCP server",
+          "Claude Code",
+          "Codex",
+          "Tool-based data retrieval",
+          "Human-in-the-loop",
+          "CLAUDE.md / AGENTS.md"
+        ]
+      },
+      {
+        "label": "Backend & Data",
+        "items": [
+          "Python",
+          "TypeScript",
+          "Node.js",
+          "Fastify",
+          "REST API",
+          "PostgreSQL",
+          "Supabase",
+          "Drizzle ORM",
+          "Excel / CSV parsing",
+          "pg_trgm + unaccent"
+        ]
+      },
+      {
+        "label": "Frontend & DevOps",
+        "items": [
+          "React",
+          "Next.js",
+          "Docker Compose",
+          "Caddy",
+          "GitHub Actions",
+          "Vercel",
+          "Vitest",
+          "Playwright",
+          "TDD"
+        ]
+      },
+      {
+        "label": "E-commerce Domain",
+        "items": [
+          "Shopee / TikTok Shop API",
+          "Temu",
+          "Walmart",
+          "Shipping labels",
+          "E-commerce P&L reporting",
+          "Meta & Google Ads",
           "GA4",
-          "Google Tag Manager",
-          "Looker Studio",
-          "Search Console",
-          "CTR / CPC / CPA / ROAS",
-          "A/B testing"
-        ]
-      },
-      {
-        "label": "SEO & Web",
-        "items": [
-          "Technical SEO (Core Web Vitals, metadata, site architecture)",
-          "On-page SEO",
-          "International SEO",
-          "WordPress",
-          "HTML / CSS",
-          "Responsive mobile-first",
-          "Chatbot & lead forms"
-        ]
-      },
-      {
-        "label": "Business Systems",
-        "items": [
-          "Zoho",
-          "Odoo",
           "MISA",
-          "Shipstar (the company's own in-house platform)",
-          "Lead pipeline & routing",
-          "Sales-funnel reporting"
-        ]
-      },
-      {
-        "label": "Creative",
-        "items": [
-          "Adobe Photoshop",
-          "Banner & social design",
-          "Premiere Pro",
-          "CapCut",
-          "Brand identity assets"
+          "Zoho"
         ]
       }
     ]
@@ -215,11 +222,18 @@
         "nested": false
       },
       {
-        "period": "06–08/2026",
-        "title": "Product & Web (Shipstar)",
+        "period": "06/2026 – 30/09/2026",
+        "title": "Product & Developer (Shipstar)",
         "company": "TP Plastic",
         "type": "Internal project, concurrent",
         "nested": true
+      },
+      {
+        "period": "07/2026",
+        "title": "EstateHub CRM — Next.js, Supabase, Web Push",
+        "company": "Personal",
+        "type": "Side project",
+        "nested": false
       },
       {
         "period": "06/2023 – 12/2023",
@@ -253,13 +267,13 @@
   "about": {
     "eyebrow": "ABOUT",
     "title": "About",
-    "body": "I trained as a software engineer and moved into marketing, which means I don't hand off work I can do myself. The part I like most sits between marketing and product — on Shipstar I sat with the people who actually pack the boxes and turned a long, messy process into something they can run one-handed. What I'm good at is making the technical layer work so the marketing layer can: technical SEO that fixes what is genuinely broken rather than what is easy to report, tracking that answers which channel closed the deal, and landing pages built for the buyer instead of for the brief.",
+    "body": "I trained as a software engineer, then spent two years in marketing for a manufacturer selling into the US. Those years taught me what the people using an AI feature actually need: ops wants invoices entered faster, sales wants stock answers without asking anyone, a shop owner wants listings without typing them. In 2026 I went back to writing code, this time alongside AI agents. What I'm good at is not the prompting; it's the rules and the verification that make agent output trustworthy — every database write has a human approving it, and nothing reaches production without tests.",
     "portraitAlt": "Portrait of Nguyen Thai Vinh"
   },
   "contact": {
     "eyebrow": "CONTACT",
-    "title": "Open to Digital Marketing / Growth roles",
-    "sub": "Ideally B2B, cross-border, or anything selling into the US market.",
+    "title": "Open to Software / AI Engineer roles",
+    "sub": "Ideally e-commerce, martech, or AI automation for operations.",
     "emailLabel": "Email",
     "email": "thaivinhnguyen088@gmail.com",
     "phoneLabel": "Phone",

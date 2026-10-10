@@ -293,7 +293,7 @@ const jsonLd = () =>
     '@type': 'Person',
     name: 'Nguyễn Thái Vinh',
     alternateName: 'Nguyen Thai Vinh',
-    jobTitle: 'Digital Marketing Executive',
+    jobTitle: 'Software Engineer',
     email: `mailto:${en.contact.email}`,
     telephone: `+${en.contact.phoneHref.replace(/\D/g, '')}`,
     url: `${base}/`,
@@ -301,15 +301,15 @@ const jsonLd = () =>
     sameAs: [en.contact.linkedinUrl],
     address: { '@type': 'PostalAddress', addressLocality: 'Ho Chi Minh City', addressCountry: 'VN' },
     knowsAbout: [
-      'Digital marketing',
-      'Meta Ads',
-      'Google Ads',
-      'Google Analytics 4',
-      'Google Tag Manager',
-      'Technical SEO',
-      'WordPress',
-      'Looker Studio',
-      'Conversion tracking',
+      'Software engineering',
+      'Large language models',
+      'AI agents',
+      'Model Context Protocol',
+      'Claude API',
+      'Python',
+      'TypeScript',
+      'PostgreSQL',
+      'E-commerce',
     ],
     knowsLanguage: ['vi', 'en'],
     alumniOf: {
@@ -324,7 +324,7 @@ const jsonLd = () =>
 /* Mỗi ảnh dự án có hai cỡ để srcset chọn: 1440 cho desktop retina,
    720 cho điện thoại. Card rộng tối đa 534px trên desktop. */
 const ASSET = { portrait: await v('assets/img/portrait.jpg') };
-for (const slug of ['shipstar', 'tpplasticusa', 'obbgel', 'oceantrading']) {
+for (const slug of en.work.projects.map(p => p.slug)) {
   ASSET[slug] = await v(`assets/img/work-${slug}.webp`);
   ASSET[slug + '720'] = await v(`assets/img/work-${slug}-720.webp`);
 }
@@ -396,7 +396,7 @@ const html = `<!doctype html>
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Nguyen Thai Vinh — Digital Marketing Executive · Website &amp; Growth">
+    <meta property="og:image:alt" content="Nguyen Thai Vinh — Software Engineer · LLM &amp; AI Automation">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="vi_VN">
     <meta name="twitter:card" content="summary_large_image">
