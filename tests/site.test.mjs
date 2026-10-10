@@ -104,7 +104,7 @@ const contrast = (a, b) => {
 
 test('tokens: màu nhấn xanh lá và tương phản ≥ 4.5', async () => {
   const css = await readFile(p('styles/tokens.css'), 'utf8');
-  const token = name => (css.match(new RegExp(`--${name}:\s*(#[0-9A-Fa-f]{6})`)) || [])[1];
+  const token = name => (css.match(new RegExp(`--${name}:[ \\t]*(#[0-9A-Fa-f]{6})`)) || [])[1];
   assert.equal(token('accent')?.toUpperCase(), '#6FD49A');
   for (const name of ['accent', 'ink-muted']) {
     const ratio = contrast(token(name), token('ground'));
