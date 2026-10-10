@@ -5,7 +5,7 @@
        npm run brand
 
    og-image bám bố cục của assets/img/_reference-linkedin-banner.jpg
-   (nền navy, tên, chức danh, hàng từ khoá, gạch teal dưới đáy),
+   (nền navy, tên, chức danh, hàng từ khoá, gạch xanh lá dưới đáy),
    chỉ đổi tỷ lệ sang 1200×630 theo yêu cầu của LinkedIn / OG.
    ───────────────────────────────────────────────────────────── */
 
@@ -18,8 +18,8 @@ const OUT = new URL('../assets/img/', import.meta.url);
 const ROOT = new URL('../', import.meta.url);
 
 const NAME = 'NGUYỄN THÁI VINH';
-const ROLE = 'Digital Marketing Executive  ·  Website &amp; Growth';
-const KEYWORDS = 'META &amp; GOOGLE ADS · TECHNICAL SEO · GA4 / GTM · WORDPRESS';
+const ROLE = 'Software Engineer  ·  LLM &amp; AI Automation';
+const KEYWORDS = 'CLAUDE API · MCP · PYTHON · TYPESCRIPT · POSTGRESQL';
 
 /* ── og-image.jpg — 1200×630 ─────────────────────────────── */
 
@@ -34,10 +34,10 @@ const page_html = `<!doctype html><html><head><meta charset="utf-8">
     display: flex; align-items: center; justify-content: flex-end;
     padding: 0 76px 14px; position: relative;
   }
-  /* gạch teal dưới đáy, giống ảnh bìa LinkedIn */
+  /* gạch xanh lá dưới đáy, giống ảnh bìa LinkedIn */
   body::after {
     content: ''; position: absolute; left: 0; right: 0; bottom: 0;
-    height: 8px; background: #3FB6C8;
+    height: 8px; background: #6FD49A;
   }
   .block { text-align: right; display: flex; flex-direction: column; gap: 22px; align-items: flex-end; }
   h1 {
@@ -50,7 +50,7 @@ const page_html = `<!doctype html><html><head><meta charset="utf-8">
   }
   .keywords {
     font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 19px;
-    letter-spacing: 0.1em; color: #3FB6C8; padding-top: 6px;
+    letter-spacing: 0.1em; color: #6FD49A; padding-top: 6px;
   }
 </style></head><body>
   <div class="block">
@@ -77,8 +77,8 @@ console.log(`og-image.jpg          1200×630  ${Math.round(ogSize / 1024)}KB${og
 
 const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NV">
   <rect width="64" height="64" fill="#0B1720"/>
-  <path d="M14 46V18h6.2l13.6 18.3V18H40v28h-6.2L20.2 27.7V46z" fill="#3FB6C8"/>
-  <path d="M40 18h6.6l4.4 20 4.4-20H62L54.6 46h-7.2z" fill="#3FB6C8"/>
+  <path d="M14 46V18h6.2l13.6 18.3V18H40v28h-6.2L20.2 27.7V46z" fill="#6FD49A"/>
+  <path d="M40 18h6.6l4.4 20 4.4-20H62L54.6 46h-7.2z" fill="#6FD49A"/>
 </svg>
 `;
 await writeFile(new URL('favicon.svg', ROOT), favicon, 'utf8');

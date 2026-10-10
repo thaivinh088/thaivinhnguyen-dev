@@ -87,3 +87,27 @@ test('build: SEO trỏ domain mới', async () => {
   assert.ok(attr(/property="og:image" content="([^"]+)"/).startsWith(SITE));
   assert.match(html, /"jobTitle":"Software Engineer"/);
 });
+
+/* ── Task 4: màu nhấn và tương phản ───────────────────────── */
+
+const luminance = hex => {
+  const [r, g, b] = hex.match(/[0-9a-f]{2}/gi).map(h => {
+    const c = parseInt(h, 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+const contrast = (a, b) => {
+  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+};
+
+test('tokens: màu nhấn xanh lá và tương phản ≥ 4.5', async () => {
+  const css = await readFile(p('styles/tokens.css'), 'utf8');
+  const token = name => (css.match(new RegExp(`--${name}:\s*(#[0-9A-Fa-f]{6})`)) || [])[1];
+  assert.equal(token('accent')?.toUpperCase(), '#6FD49A');
+  for (const name of ['accent', 'ink-muted']) {
+    const ratio = contrast(token(name), token('ground'));
+    assert.ok(ratio >= 4.5, `--${name} trên --ground chỉ ${ratio.toFixed(2)}:1`);
+  }
+});

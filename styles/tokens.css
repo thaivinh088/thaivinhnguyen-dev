@@ -14,13 +14,13 @@
   --line:        #21404F;
   --ink:         #EAF2F6;
   --ink-muted:   #93AAB8;
-  --accent:      #3FB6C8;
+  --accent:      #6FD49A;
   --accent-warm: #E8A33D;
   --white:       #FFFFFF;
 
   /* Dẫn xuất — nền nhấn rất nhạt và viền sáng khi hover/focus */
-  --accent-dim:  rgba(63, 182, 200, 0.14);
-  --accent-line: rgba(63, 182, 200, 0.42);
+  --accent-dim:  rgba(111, 212, 154, 0.14);
+  --accent-line: rgba(111, 212, 154, 0.42);
   --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
 
   /* Typography */
