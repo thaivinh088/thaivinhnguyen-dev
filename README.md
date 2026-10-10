@@ -22,6 +22,10 @@ URL riêng. Vì Vercel phục vụ `index.html` đã commit chứ không tự si
 `npm run build` là production im lặng phục vụ bản cũ** — không có lỗi nào báo.
 Deploy tay bằng `vercel --prod --yes` vẫn dùng được khi cần.
 
+Project Vercel: **`thaivinhnguyen-dev` trong tài khoản cá nhân (scope `vs-oo`)**, cùng
+chỗ với site cũ `thaivinhnguyen` — **không** phải team SS TEAM hay Ship Star. Trước khi
+chạy lệnh `vercel` nào, kiểm `vercel whoami` ra `thaivinh088`.
+
 Hai file JSON phải có **cùng bộ key**; `npm run build` sẽ báo nếu lệch.
 
 ## Năm lệnh
