@@ -1,7 +1,9 @@
-# Portfolio — Nguyễn Thái Vinh
+# Portfolio dev — Nguyễn Thái Vinh · Software Engineer · LLM & AI Automation
 
 HTML + CSS + vanilla JS tĩnh, song ngữ EN/VI. Deploy: **Vercel**.
-Spec đầy đủ ở [`PORTFOLIO-BRIEF.md`](PORTFOLIO-BRIEF.md).
+Bản thứ hai, copy từ portfolio marketing (`E:\Porfolio`) và định vị lại cho vị trí
+Software / AI Engineer. Spec: [`docs/superpowers/specs/2026-10-09-portfolio-dev-design.md`](docs/superpowers/specs/2026-10-09-portfolio-dev-design.md)
+— mọi chữ trên trang lấy nguyên văn từ mục 4 của spec, luật nội dung ở mục 2.
 
 ## Sửa nội dung
 
@@ -22,14 +24,15 @@ Deploy tay bằng `vercel --prod --yes` vẫn dùng được khi cần.
 
 Hai file JSON phải có **cùng bộ key**; `npm run build` sẽ báo nếu lệch.
 
-## Bốn lệnh
+## Năm lệnh
 
 | Lệnh | Làm gì |
 |---|---|
 | `npm run build` | Sinh `index.html`, `sitemap.xml`, `robots.txt` |
 | `npm run fonts` | Tải woff2 từ Google Fonts về `assets/fonts/`, sinh `styles/fonts.css` |
-| `npm run shots` | Chụp lại ảnh 4 website dự án → `assets/img/work-*.webp` |
+| `npm run shots` | Chụp lại ảnh 4 dự án → `assets/img/work-*.webp` |
 | `npm run brand` | Sinh `og-image.jpg`, `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` |
+| `npm test` | Kiểm nội dung, build, ảnh, CV, tương phản và runtime trên Chromium (chạy sau `npm run build`) |
 
 `npm run fonts` chỉ cần chạy lại khi đổi bộ chữ hoặc muốn cập nhật font từ Google.
 Chạy xong nhớ `npm run build`, vì CSS được nhúng thẳng vào `index.html`.
@@ -41,15 +44,23 @@ npm install
 npx playwright install chromium
 ```
 
-`npm run shots -- obbgel` để chụp lại một site. **Mở ảnh ra xem bằng mắt trước khi
-commit** — ảnh trắng hoặc dính popup thì chụp lại. Script đã ẩn sẵn popup cookie
-và bong bóng chat (tawk.to, Zoho SalesIQ, WhatsApp, Zalo, Messenger).
+Bốn slug ảnh: `shipstar` (shipstar.vn), `mia` (miaai.vn), `mia-agent` (khối
+`#h-app` "Trợ lý chạy ngay trên máy tính của bạn" trên miaai.vn), `tinhhoa`
+(tinhhoa.tech). `npm run shots -- mia-agent` để chụp lại một slug. **Mở ảnh ra xem
+bằng mắt trước khi commit** — ảnh trắng hoặc dính popup thì chụp lại. Script đã ẩn
+sẵn popup cookie, bong bóng chat và hai nút nổi của miaai.vn; context chụp bật
+`bypassCSP` vì miaai.vn chặn style chèn vào.
 
 ## Việc phải làm sau lần deploy đầu
 
 Cả hai thứ dưới đây nằm ở **một chỗ duy nhất**: [`site.config.mjs`](site.config.mjs).
 
-1. **Domain.** Đã điền: `https://thaivinhnguyen.vercel.app`. Khi mua domain riêng
+0. **Ảnh thật cho hai thẻ.** Thẻ Shipstar đang dùng trang chủ shipstar.vn, thẻ MIA
+   Agent dùng ảnh minh hoạ trên miaai.vn. Khi có ảnh chụp màn copilot / soạn listing
+   của Shipstar (**che tên khách, giá, tồn kho trước**) hoặc cửa sổ app MIA Agent,
+   xuất ra `work-{slug}.webp` (1440 rộng) và `work-{slug}-720.webp`, rồi build.
+1. **Domain.** Đã điền: `https://thaivinhnguyen-dev.vercel.app`. Hai CV trong
+   `assets/cv/` cũng in link này — đổi domain thì render lại CV. Khi mua domain riêng
    thì đổi đúng dòng đó, chạy `npm run build`, push, rồi thêm domain trong Vercel —
    canonical, `og:url`, `og:image` và sitemap đều bám theo. Chỉ để **một** bản chính
    phục vụ nội dung, bản kia redirect, rồi chạy lại Post Inspector với domain mới.
@@ -71,13 +82,16 @@ và [PageSpeed Insights](https://pagespeed.web.dev/) trên URL production thật
 | `styles/tokens.css` | Màu, font, khoảng cách. Sửa palette ở đây |
 | `styles/base.css` | Reset, typography, thành phần dùng lại, chuyển động |
 | `styles/sections.css` | Từng khối trên trang |
+| `styles/fx.css` | Bốn hiệu ứng (ý tưởng 21st.dev / Jitter): hero blur-fade + lưới chấm, vòng lặp SVG, spotlight + viền sáng thẻ dự án, marquee |
 | `styles/fonts.css` | **Sinh ra tự động** bởi `npm run fonts`. Đừng sửa tay |
 | `assets/fonts/*.woff2` | Font self-host, phải commit |
 | `scripts/i18n.js` | Đổi ngôn ngữ, đẩy sự kiện xuống dataLayer |
 | `scripts/ui.js` | Nav mobile, scroll reveal, bắt click để track |
+| `scripts/fx.js` | Spotlight theo con trỏ, chạy/dừng vòng lặp theo viewport (≤ 3KB) |
 | `scripts/build.mjs` | Sinh HTML/sitemap/robots |
 | `scripts/fonts.mjs` | Tải font về self-host |
-| `scripts/shots.mjs` | Chụp ảnh 4 website dự án |
+| `scripts/shots.mjs` | Chụp ảnh 4 dự án |
+| `tests/*.test.mjs` | `node:test` — tĩnh (`site`) và Chromium (`browser`) |
 | `scripts/brand.mjs` | Sinh og-image và favicon |
 | `vercel.json` | Headers bảo mật + cache |
 
@@ -114,3 +128,7 @@ và [PageSpeed Insights](https://pagespeed.web.dev/) trên URL production thật
   mở trang mà không cuộn cũng thấy y như vậy. Hiệu ứng vào section chỉ dùng
   `transform`. Khi tự viết script đo tương phản, nhớ nhân opacity của cả cây cha
   — đọc mỗi `getComputedStyle().color` sẽ không thấy lỗi này.
+- **Hiệu ứng tôn trọng giảm chuyển động.** `fx.css` có khối `prefers-reduced-motion`
+  riêng (tắt hẳn animation), cộng với khối chung trong `base.css`. Test
+  `fx: reduced-motion` mở Chromium với `reducedMotion: 'reduce'` và đếm animation
+  đang chạy — thêm hiệu ứng mới thì thêm selector vào khối đó.
