@@ -52,14 +52,17 @@
 .fx-node { fill: var(--accent-dim); stroke: var(--accent); stroke-width: 2; }
 .fx-node-core { fill: var(--accent); }
 .fx-node-group { animation: fx-pulse 6s linear infinite; }
-.fx-node-group--1 { animation-delay: 2s; }
-.fx-node-group--2 { animation-delay: 4s; }
+/* Delay âm: nút vào chu kỳ ở giữa (đang tối) và sáng đúng lúc chấm tới, ngay
+   từ vòng đầu — delay dương để nút sáng nguyên trong lúc chờ. */
+.fx-node-group--1 { animation-delay: -4s; }
+.fx-node-group--2 { animation-delay: -2s; }
 
 @keyframes fx-spin { to { transform: rotate(360deg); } }
 /* Chấm sáng tới nút ở 0 / 1/3 / 2/3 chu kỳ → nút đó sáng rồi tắt dần. */
 @keyframes fx-pulse {
-  0%, 6%   { filter: drop-shadow(0 0 10px var(--accent)); }
-  22%, 100% { filter: grayscale(1) brightness(.75); }
+  /* Cùng danh sách hàm filter ở hai đầu để trình duyệt nội suy mượt. */
+  0%, 6%    { filter: drop-shadow(0 0 10px var(--accent)) grayscale(0) brightness(1); }
+  22%, 100% { filter: drop-shadow(0 0 0 transparent) grayscale(1) brightness(.75); }
 }
 
 .fx-loop[data-state="paused"] .fx-orbit,
@@ -108,6 +111,8 @@
   visibility: hidden;
 }
 @media (hover: hover) {
+  /* Giữ viền nền khi hover: viền --accent của sections.css sẽ nuốt mất tia sáng. */
+  .work-card:hover { border-color: var(--line); }
   .work-card:hover::before { visibility: visible; animation: fx-beam 3s linear infinite; }
 }
 @keyframes fx-beam { to { --fx-angle: 360deg; } }

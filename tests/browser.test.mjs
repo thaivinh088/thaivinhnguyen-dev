@@ -128,3 +128,29 @@ test('fx: vòng lặp chạy theo viewport', async () => {
   await page.waitForFunction(() => document.querySelector('.fx-loop').dataset.state === 'run');
   await ctx.close();
 });
+
+test('fx: viền sáng thấy được khi hover thẻ (desktop)', async () => {
+  const { ctx, page } = await open('/');
+  const card = page.locator('.work-card').first();
+  await card.scrollIntoViewIfNeeded();
+  const box = await card.boundingBox();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.waitForTimeout(500);
+  const { border, accent, beam } = await card.evaluate(el => ({
+    border: getComputedStyle(el).borderTopColor,
+    accent: getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(),
+    beam: getComputedStyle(el, '::before').visibility,
+  }));
+  assert.equal(beam, 'visible');
+  assert.notEqual(border, 'rgb(111, 212, 154)', `viền thẻ trùng màu tia sáng ${accent} — tia sáng bị chìm`);
+  await ctx.close();
+});
+
+test('fx: chu kỳ đầu — nút 2 và 3 tối khi chấm sáng còn ở nút 1', async () => {
+  const { ctx, page } = await open('/');
+  // Đầu trang: vòng lặp đang paused ở thời điểm 0, chấm sáng ở nút 0.
+  const filters = await page.$$eval('.fx-node-group', gs => gs.map(g => getComputedStyle(g).filter));
+  assert.doesNotMatch(filters[0], /grayscale\(1\)/, `nút 0 phải sáng: ${filters[0]}`);
+  for (const i of [1, 2]) assert.match(filters[i], /grayscale\(1\)/, `nút ${i} phải tối: ${filters[i]}`);
+  await ctx.close();
+});
