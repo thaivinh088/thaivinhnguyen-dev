@@ -124,6 +124,30 @@ const hero = () => {
       </section>`;
 };
 
+/* Vòng lặp 3 nút kiểu Jitter. Toạ độ trong viewBox 600×340, tâm (300,180),
+   bán kính 120: nút 0 ở đỉnh, nút 1 dưới phải, nút 2 dưới trái — chấm sáng
+   quay theo chiều kim đồng hồ đi qua đúng thứ tự Đặt luật → Chạy → Kiểm chứng. */
+const LOOP_NODES = [
+  [300, 60],
+  [404, 240],
+  [196, 240],
+];
+const loopFigure = () => `<div class="fx-loop" data-state="paused" aria-hidden="true">
+            <svg viewBox="0 0 600 340" focusable="false">
+              <circle class="fx-track" cx="300" cy="180" r="120"/>
+              ${LOOP_NODES.map(
+                ([x, y], i) => `<g class="fx-node-group fx-node-group--${i}">
+                <circle class="fx-node" cx="${x}" cy="${y}" r="14"/>
+                <circle class="fx-node-core" cx="${x}" cy="${y}" r="5"/>
+              </g>`
+              ).join('\n              ')}
+              <g class="fx-orbit"><circle class="fx-dot" cx="300" cy="60" r="6"/></g>
+            </svg>
+            ${en.layers.items
+              .map((l, i) => `<span class="fx-label fx-label--${i}" ${t(`layers.items[${i}].name`)}>${esc(l.name)}</span>`)
+              .join('\n            ')}
+          </div>`;
+
 const layers = () => {
   const items = en.layers.items
     .map(
@@ -149,6 +173,7 @@ const layers = () => {
           <p class="eyebrow" ${t('layers.eyebrow')}>${esc(en.layers.eyebrow)}</p>
           <h2 class="section-title" id="how-title" ${t('layers.title')}>${esc(en.layers.title)}</h2>
           <p class="section-intro measure" ${t('layers.intro')}>${esc(en.layers.intro)}</p>
+          ${loopFigure()}
           <ol class="layer-stack">
             ${items}
           </ol>
@@ -195,6 +220,18 @@ const work = () => {
       </section>`;
 };
 
+const marqueeItems = () => {
+  const viItems = new Set(vi.skills.groups.flatMap(g => g.items));
+  return [...new Set(en.skills.groups.flatMap(g => g.items).filter(it => viItems.has(it)))]
+    .map(it => it.replace(/\s*\(.*\)\s*/, ''));
+};
+const marquee = () => {
+  const list = marqueeItems().map(it => `<li>${esc(it)}</li>`).join('');
+  return `<div class="fx-marquee" aria-hidden="true">
+            <div class="fx-marquee-inner"><ul>${list}</ul><ul aria-hidden="true">${list}</ul></div>
+          </div>`;
+};
+
 const skills = () => {
   const groups = en.skills.groups
     .map(
@@ -211,6 +248,7 @@ const skills = () => {
         <div class="wrap reveal">
           <p class="eyebrow" ${t('skills.eyebrow')}>${esc(en.skills.eyebrow)}</p>
           <h2 class="section-title" id="skills-title" ${t('skills.title')}>${esc(en.skills.title)}</h2>
+          ${marquee()}
           <div class="skill-groups">
             ${groups}
           </div>
@@ -340,7 +378,7 @@ for (const slug of en.work.projects.map(p => p.slug)) {
    CSS đang chặn render và đẩy LCP từ ~1.4s lên ~2.2s. font-display:swap
    đã lo phần hiển thị — chữ hiện ngay bằng font hệ thống rồi mới đổi,
    đổi lấy CLS 0.019 (ngưỡng 0.05).                                  */
-const CSS_FILES = ['styles/fonts.css', 'styles/tokens.css', 'styles/base.css', 'styles/sections.css'];
+const CSS_FILES = ['styles/fonts.css', 'styles/tokens.css', 'styles/base.css', 'styles/sections.css', 'styles/fx.css'];
 const css = [];
 for (const file of CSS_FILES) css.push(await readFile(p(file), 'utf8'));
 if (!css[0].includes('/assets/fonts/')) {
@@ -352,6 +390,7 @@ const srcEn = await v('content/en.json');
 const srcVi = await v('content/vi.json');
 const srcI18n = await v('scripts/i18n.js');
 const srcUi = await v('scripts/ui.js');
+const srcFx = await v('scripts/fx.js');
 
 const gtmHead = GTM_ID
   ? `\n    <!-- Google Tag Manager -->
@@ -428,6 +467,7 @@ ${gtmHead}
     </script>
     <link rel="modulepreload" href="${srcI18n}">
     <script type="module" src="${srcUi}"></script>
+    <script type="module" src="${srcFx}"></script>
   </head>
 
   <body>
@@ -475,6 +515,7 @@ const SOURCES = [
   'styles',
   'assets',
   'scripts/ui.js',
+  'scripts/fx.js',
   'scripts/i18n.js',
   'scripts/build.mjs',
   'site.config.mjs',

@@ -965,6 +965,167 @@ main { display: block; }
   letter-spacing: .08em;
   color: var(--ink-muted);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   fx.css — bốn hiệu ứng, ý tưởng từ 21st.dev (Blur Fade, Dot
+   Pattern, Spotlight Card, Border Beam, Marquee) và vòng lặp kiểu
+   Jitter. Dựng lại bằng CSS thuần, không thư viện.
+
+   Luật (spec 3.5): trạng thái NGHỈ của chữ không bao giờ có
+   opacity < 1 — bẫy tương phản đã ghi trong README. Chuyển cảnh chỉ
+   dùng transform / filter / opacity trong lúc chạy.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Hero: blur-fade theo từng cụm + nền lưới chấm ─────────── */
+
+@keyframes fx-blur-rise {
+  from { opacity: .85; transform: translateY(12px); filter: blur(6px); }
+  to   { opacity: 1;   transform: none;             filter: none; }
+}
+.hero .rise { animation-name: fx-blur-rise; }
+
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(var(--line) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 72% 28%, #000 20%, transparent 72%);
+          mask-image: radial-gradient(ellipse 70% 60% at 72% 28%, #000 20%, transparent 72%);
+}
+
+/* ── Cách tôi làm việc: vòng lặp 3 nút ─────────────────────── */
+
+.fx-loop {
+  position: relative;
+  width: min(100%, 520px);
+  margin: 8px auto 40px;
+  aspect-ratio: 600 / 340;
+}
+.fx-loop svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+.fx-track { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 3 7; }
+
+.fx-orbit {
+  transform-box: view-box;
+  transform-origin: 300px 180px;
+  animation: fx-spin 6s linear infinite;
+}
+.fx-dot { fill: var(--accent); filter: drop-shadow(0 0 6px var(--accent)); }
+
+/* Trạng thái nghỉ (không animation, reduced-motion): ba nút cùng sáng. */
+.fx-node { fill: var(--accent-dim); stroke: var(--accent); stroke-width: 2; }
+.fx-node-core { fill: var(--accent); }
+.fx-node-group { animation: fx-pulse 6s linear infinite; }
+.fx-node-group--1 { animation-delay: 2s; }
+.fx-node-group--2 { animation-delay: 4s; }
+
+@keyframes fx-spin { to { transform: rotate(360deg); } }
+/* Chấm sáng tới nút ở 0 / 1/3 / 2/3 chu kỳ → nút đó sáng rồi tắt dần. */
+@keyframes fx-pulse {
+  0%, 6%   { filter: drop-shadow(0 0 10px var(--accent)); }
+  22%, 100% { filter: grayscale(1) brightness(.75); }
+}
+
+.fx-loop[data-state="paused"] .fx-orbit,
+.fx-loop[data-state="paused"] .fx-node-group { animation-play-state: paused; }
+
+.fx-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.fx-label--0 { left: 50%;   top: 4%; }   /* nút (300,60)  */
+.fx-label--1 { left: 67.3%; top: 85%; }  /* nút (404,240) */
+.fx-label--2 { left: 32.7%; top: 85%; }  /* nút (196,240) */
+@media (max-width: 480px) { .fx-label { font-size: 10.5px; letter-spacing: .06em; } }
+
+/* ── Thẻ dự án: spotlight theo con trỏ + viền sáng chạy ─────── */
+
+@property --fx-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.work-card {
+  position: relative;
+  background:
+    radial-gradient(420px circle at var(--mx, -999px) var(--my, -999px), var(--accent-dim), transparent 62%),
+    var(--surface);
+}
+.work-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: conic-gradient(from var(--fx-angle), transparent 0 72%, var(--accent) 86%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  visibility: hidden;
+}
+@media (hover: hover) {
+  .work-card:hover::before { visibility: visible; animation: fx-beam 3s linear infinite; }
+}
+@keyframes fx-beam { to { --fx-angle: 360deg; } }
+
+/* ── Kỹ năng: dải công nghệ trôi ngang ─────────────────────── */
+
+.fx-marquee {
+  overflow: hidden;
+  margin: 4px 0 36px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.fx-marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: fx-marquee 40s linear infinite;
+}
+.fx-marquee:hover .fx-marquee-inner { animation-play-state: paused; }
+.fx-marquee ul {
+  display: flex;
+  gap: 10px;
+  padding: 0 10px 0 0;
+  margin: 0;
+  list-style: none;
+}
+.fx-marquee li {
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+@keyframes fx-marquee { to { transform: translateX(-50%); } }
+
+/* ── Giảm chuyển động: tắt hết ─────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .rise,
+  .fx-loop .fx-orbit,
+  .fx-loop .fx-node-group,
+  .fx-marquee .fx-marquee-inner,
+  .work-card::before { animation: none !important; }
+  .fx-loop .fx-orbit { display: none; }
+  .fx-marquee { -webkit-mask-image: none; mask-image: none; }
+  .fx-marquee-inner { width: auto; flex-wrap: wrap; }
+  .fx-marquee ul[aria-hidden="true"] { display: none; }
+  .fx-marquee ul { flex-wrap: wrap; row-gap: 10px; }
+}
     </style>
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Nguyễn Thái Vinh","alternateName":"Nguyen Thai Vinh","jobTitle":"Software Engineer","email":"mailto:thaivinhnguyen088@gmail.com","telephone":"+84967761109","url":"https://thaivinhnguyen-dev.vercel.app/","image":"https://thaivinhnguyen-dev.vercel.app/assets/img/portrait.jpg","sameAs":["https://www.linkedin.com/in/thaivinhnguyen/"],"address":{"@type":"PostalAddress","addressLocality":"Ho Chi Minh City","addressCountry":"VN"},"knowsAbout":["Software engineering","Large language models","AI agents","Model Context Protocol","Claude API","Python","TypeScript","PostgreSQL","E-commerce"],"knowsLanguage":["vi","en"],"alumniOf":{"@type":"CollegeOrUniversity","name":"Ho Chi Minh City University of Foreign Languages – Information Technology (HUFLIT)"},"worksFor":{"@type":"Organization","name":"TP Plastic"}}</script>
@@ -989,6 +1150,7 @@ main { display: block; }
     </script>
     <link rel="modulepreload" href="/scripts/i18n.js?v=ed21155c">
     <script type="module" src="/scripts/ui.js?v=8380e11f"></script>
+    <script type="module" src="/scripts/fx.js?v=41d71cb0"></script>
   </head>
 
   <body>
@@ -1065,6 +1227,27 @@ main { display: block; }
           <p class="eyebrow" data-i18n="layers.eyebrow">HOW I WORK</p>
           <h2 class="section-title" id="how-title" data-i18n="layers.title">The loop I run my agents on</h2>
           <p class="section-intro measure" data-i18n="layers.intro">AI agents write code fast, but working code is not the same as trustworthy code. I wrap every agent in three steps, and none of them gets skipped.</p>
+          <div class="fx-loop" data-state="paused" aria-hidden="true">
+            <svg viewBox="0 0 600 340" focusable="false">
+              <circle class="fx-track" cx="300" cy="180" r="120"/>
+              <g class="fx-node-group fx-node-group--0">
+                <circle class="fx-node" cx="300" cy="60" r="14"/>
+                <circle class="fx-node-core" cx="300" cy="60" r="5"/>
+              </g>
+              <g class="fx-node-group fx-node-group--1">
+                <circle class="fx-node" cx="404" cy="240" r="14"/>
+                <circle class="fx-node-core" cx="404" cy="240" r="5"/>
+              </g>
+              <g class="fx-node-group fx-node-group--2">
+                <circle class="fx-node" cx="196" cy="240" r="14"/>
+                <circle class="fx-node-core" cx="196" cy="240" r="5"/>
+              </g>
+              <g class="fx-orbit"><circle class="fx-dot" cx="300" cy="60" r="6"/></g>
+            </svg>
+            <span class="fx-label fx-label--0" data-i18n="layers.items[0].name">SPECIFY</span>
+            <span class="fx-label fx-label--1" data-i18n="layers.items[1].name">RUN</span>
+            <span class="fx-label fx-label--2" data-i18n="layers.items[2].name">VERIFY</span>
+          </div>
           <ol class="layer-stack">
             <li class="layer">
               <div class="layer-head">
@@ -1236,6 +1419,9 @@ main { display: block; }
         <div class="wrap reveal">
           <p class="eyebrow" data-i18n="skills.eyebrow">CAPABILITIES</p>
           <h2 class="section-title" id="skills-title" data-i18n="skills.title">Capabilities</h2>
+          <div class="fx-marquee" aria-hidden="true">
+            <div class="fx-marquee-inner"><ul><li>Claude API</li><li>MCP server</li><li>Claude Code</li><li>Codex</li><li>Human-in-the-loop</li><li>CLAUDE.md / AGENTS.md</li><li>Python</li><li>TypeScript</li><li>Node.js</li><li>Fastify</li><li>REST API</li><li>PostgreSQL</li><li>Supabase</li><li>Drizzle ORM</li><li>pg_trgm + unaccent</li><li>React</li><li>Next.js</li><li>Docker Compose</li><li>Caddy</li><li>GitHub Actions</li><li>Vercel</li><li>Vitest</li><li>Playwright</li><li>TDD</li><li>Shopee / TikTok Shop API</li><li>Temu</li><li>Walmart</li><li>Meta &amp; Google Ads</li><li>GA4</li><li>MISA</li><li>Zoho</li></ul><ul aria-hidden="true"><li>Claude API</li><li>MCP server</li><li>Claude Code</li><li>Codex</li><li>Human-in-the-loop</li><li>CLAUDE.md / AGENTS.md</li><li>Python</li><li>TypeScript</li><li>Node.js</li><li>Fastify</li><li>REST API</li><li>PostgreSQL</li><li>Supabase</li><li>Drizzle ORM</li><li>pg_trgm + unaccent</li><li>React</li><li>Next.js</li><li>Docker Compose</li><li>Caddy</li><li>GitHub Actions</li><li>Vercel</li><li>Vitest</li><li>Playwright</li><li>TDD</li><li>Shopee / TikTok Shop API</li><li>Temu</li><li>Walmart</li><li>Meta &amp; Google Ads</li><li>GA4</li><li>MISA</li><li>Zoho</li></ul></div>
+          </div>
           <div class="skill-groups">
             <div class="skill-group">
               <h3 class="skill-label" data-i18n="skills.groups[0].label">AI Agents &amp; LLMs</h3>

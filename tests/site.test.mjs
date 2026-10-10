@@ -111,3 +111,42 @@ test('tokens: màu nhấn xanh lá và tương phản ≥ 4.5', async () => {
     assert.ok(ratio >= 4.5, `--${name} trên --ground chỉ ${ratio.toFixed(2)}:1`);
   }
 });
+
+/* ── Task 5: hiệu ứng ─────────────────────────────────────── */
+
+test('fx: ngân sách JS', async () => {
+  const fx = (await stat(p('scripts/fx.js')).catch(() => ({ size: Infinity }))).size;
+  assert.ok(fx <= 3072, `scripts/fx.js ${fx} byte > 3072`);
+  const html = await readBuilt();
+  const srcs = [...html.matchAll(/(?:src|href)="\/?(scripts\/[a-z0-9-]+\.js)/g)].map(m => m[1]);
+  assert.ok(srcs.includes('scripts/fx.js'), 'index.html chưa nạp scripts/fx.js');
+  let total = 0;
+  for (const s of new Set(srcs)) total += (await stat(p(s))).size;
+  assert.ok(total < 15360, `tổng JS ${total} byte ≥ 15360`);
+});
+
+test('fx: vòng lặp SVG có nhãn i18n', async () => {
+  const html = await readBuilt();
+  assert.match(html, /class="fx-loop"[^>]*data-state="paused"/);
+  for (const i of [0, 1, 2]) {
+    assert.ok(html.includes(`data-i18n="layers.items[${i}].name"`), `thiếu nhãn layers.items[${i}].name`);
+  }
+  const loop = html.slice(html.indexOf('class="fx-loop"'));
+  assert.ok(/data-i18n="layers\.items\[2\]\.name"/.test(loop.slice(0, 4000)), 'nhãn không nằm trong .fx-loop');
+});
+
+test('fx: marquee có bản aria-hidden', async () => {
+  const html = await readBuilt();
+  const i = html.indexOf('class="fx-marquee"');
+  assert.ok(i > 0, 'thiếu .fx-marquee');
+  assert.match(html.slice(i - 200, i + 4000), /aria-hidden="true"/);
+});
+
+test('fx: reduced-motion tắt hiệu ứng', async () => {
+  const css = (await readBuilt()).match(/<style>([\s\S]*?)<\/style>/)[1];
+  const blocks = [...css.matchAll(/@media \(prefers-reduced-motion: reduce\)\s*\{([\s\S]*?)\n\}/g)].map(m => m[1]).join('\n');
+  for (const sel of ['.fx-loop', '.fx-marquee', '.hero']) {
+    assert.ok(blocks.includes(sel), `reduced-motion chưa xử lý ${sel}`);
+  }
+  assert.match(blocks, /animation:\s*none/);
+});
