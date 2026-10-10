@@ -1,5 +1,5 @@
 /**
- * Chụp ảnh 4 website dự án -> assets/img/work-{slug}.webp
+ * Chụp ảnh 4 dự án (3 website + khối app MIA Agent trên miaai.vn) -> assets/img/work-{slug}.webp
  *
  *   npm i -D playwright sharp
  *   npx playwright install chromium
@@ -8,7 +8,7 @@
  * Chạy lại được mỗi khi các site kia đổi thiết kế.
  * BẮT BUỘC: mở 4 ảnh ra xem bằng mắt trước khi commit.
  *
- * Chụp một site: npm run shots -- obbgel
+ * Chụp một site: npm run shots -- mia-agent
  */
 import { chromium } from 'playwright';
 import sharp from 'sharp';
@@ -26,22 +26,22 @@ const SITES = [
     hide: [],
   },
   {
-    slug: 'tpplasticusa',
-    url: 'https://tpplasticusa.com',
-    // Hero là carousel tự chạy -> chờ slide đầu ổn định.
-    // Có thanh action dính đáy màn hình (vị trí / email / điện thoại / chat).
-    wait: 4000,
-    hide: ['.mobile-bottom-bar', '[class*="sticky-bottom"]', '[class*="floating"]'],
+    slug: 'mia',
+    url: 'https://miaai.vn',
+    wait: 3500,
+    // Nút nổi "Liên hệ tư vấn" và "Dừng hiệu ứng" ở góc phải dưới.
+    hide: ['button[aria-label="Liên hệ tư vấn"]', '[class*="_toggle_egmzx"]'],
   },
-  { slug: 'obbgel',       url: 'https://obbgel.com',              wait: 3500, hide: [] },
   {
-    slug: 'oceantrading',
-    url: 'https://oceantradingexpress.com',
-    // Site không bao giờ đạt networkidle (script chạy nền liên tục) -> dừng ở 'load'.
-    until: 'load',
-    wait: 4000,
-    hide: [],
+    slug: 'mia-agent',
+    url: 'https://miaai.vn',
+    // Khối "Trợ lý chạy ngay trên máy tính của bạn" giới thiệu app desktop MIA Agent.
+    scrollTo: '#h-app',
+    scrollOffset: 150, // header dính của miaai.vn cao hơn mặc định
+    wait: 3500,
+    hide: ['button[aria-label="Liên hệ tư vấn"]', '[class*="_toggle_egmzx"]'],
   },
+  { slug: 'tinhhoa', url: 'https://tinhhoa.tech', wait: 3500, hide: [] },
 ];
 
 // Ẩn các thứ hay che mất nội dung: popup cookie, popup khuyến mãi,
@@ -74,7 +74,8 @@ const browser = await chromium.launch();
 let failed = 0;
 
 for (const site of targets) {
-  const ctx = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 2 });
+  // bypassCSP: miaai.vn có CSP style-src 'self' chặn addStyleTag (ẩn popup).
+  const ctx = await browser.newContext({ viewport: VIEWPORT, deviceScaleFactor: 2, bypassCSP: true });
   const page = await ctx.newPage();
   try {
     process.stdout.write(`→ ${site.url} ... `);
@@ -84,6 +85,12 @@ for (const site of targets) {
       ? `${site.hide.join(',')} { display: none !important; }`
       : '';
     await page.addStyleTag({ content: GENERIC_HIDE + hide });
+
+    if (site.scrollTo) {
+      // Đặt khối cần chụp sát mép trên viewport (trừ khoảng cho nav dính).
+      await page.locator(site.scrollTo).evaluate((el, off) =>
+        window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - off), site.scrollOffset ?? 96);
+    }
 
     await page.waitForTimeout(site.wait);
 
