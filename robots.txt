@@ -1,0 +1,6 @@
+# Cho index toàn bộ. Không chặn bot đọc thẻ preview:
+# LinkedInBot, facebookexternalhit, Twitterbot đều được phép (Mục 6.1).
+User-agent: *
+Allow: /
+
+Sitemap: https://thaivinhnguyen.vercel.app/sitemap.xml

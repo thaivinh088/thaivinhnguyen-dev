@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "title": "Nguyễn Thái Vinh — Digital Marketing Executive",
+    "description": "Marketer tự dựng website, tự làm technical SEO và tracking, rồi tự chạy quảng cáo. Hiện phụ trách 8 website và 11 kênh social tại TP Plastic."
+  },
+  "nav": {
+    "how": "Cách làm việc",
+    "work": "Dự án",
+    "skills": "Năng lực",
+    "experience": "Kinh nghiệm",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "name": "NGUYỄN THÁI VINH",
+    "role": "Digital Marketing Executive · Website & Growth",
+    "statement": "Tôi dựng website, gắn tracking, rồi chạy quảng cáo đổ traffic vào chính website đó.",
+    "sub": "Kỹ sư phần mềm chuyển sang marketing. Hơn 2 năm phụ trách trọn phễu marketing số cho một nhà sản xuất nhựa B2B đang mở thị trường Mỹ — không agency, không đội dev.",
+    "ctaPrimary": "Xem công việc",
+    "ctaSecondary": "Tải CV (PDF)",
+    "stats": [
+      {
+        "value": "8",
+        "label": "website đang phụ trách"
+      },
+      {
+        "value": "11",
+        "label": "kênh social"
+      },
+      {
+        "value": "4",
+        "label": "hệ thống vận hành"
+      },
+      {
+        "value": "$1.000+",
+        "label": "ngân sách ads/tháng"
+      }
+    ]
+  },
+  "layers": {
+    "eyebrow": "CÁCH TÔI LÀM VIỆC",
+    "title": "Ba tầng tôi tự làm",
+    "intro": "Hầu hết marketer chỉ làm tầng thứ ba và phụ thuộc người khác cho hai tầng đầu. Tôi làm cả ba, nên không có khoảng chờ giữa các bên.",
+    "items": [
+      {
+        "id": "build",
+        "name": "DỰNG",
+        "desc": "Dựng website từ cấu trúc thông tin, nội dung, WordPress đến technical SEO và launch.",
+        "tools": [
+          "WordPress",
+          "HTML / CSS",
+          "Technical SEO",
+          "Core Web Vitals",
+          "Responsive mobile-first"
+        ],
+        "proof": "tpplasticusa.com, obbgel.com, oceantradingexpress.com"
+      },
+      {
+        "id": "measure",
+        "name": "ĐO",
+        "desc": "Gắn hệ thống đo lường để biết kênh nào tạo ra đơn chốt, không chỉ đếm lượt click.",
+        "tools": [
+          "Google Tag Manager",
+          "GA4",
+          "Looker Studio",
+          "Search Console",
+          "Zoho",
+          "Odoo",
+          "MISA"
+        ],
+        "proof": "Hệ thống đo lường đầu tiên của TP Plastic"
+      },
+      {
+        "id": "acquire",
+        "name": "KÉO",
+        "desc": "Chạy quảng cáo và nội dung đổ traffic vào đúng trang mình đã dựng và đã gắn tracking.",
+        "tools": [
+          "Meta Ads",
+          "Google Ads (Search, Display)",
+          "A/B testing",
+          "CTR / CPC / CPA / ROAS"
+        ],
+        "proof": "Tỷ lệ chuyển đổi lead tăng 35%"
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "DỰ ÁN",
+    "title": "Dự án tiêu biểu",
+    "viewSite": "Xem site",
+    "projects": [
+      {
+        "slug": "shipstar",
+        "domain": "shipstar.vn",
+        "url": "https://shipstar.vn",
+        "image": "assets/img/work-shipstar.webp",
+        "meta": "06–08/2026 · Nhóm 3 người · Product & Web",
+        "desc": "Nền tảng 3PL fulfillment xuyên biên giới Việt Nam → Mỹ: nhập kho, pick & pack, nhãn vận chuyển đa hãng, hải quan, đối soát phí và cổng seller.",
+        "bullets": [
+          "Thiết kế UI/UX và dựng front-end cho seller portal, luồng tạo nhãn vận chuyển và màn hình quản lý kho.",
+          "Ưu tiên mobile-first vì nhân viên kho thao tác trên điện thoại giữa lúc đóng hàng.",
+          "Thiết kế lại luồng nghiệp vụ kho vận: biến quy trình phức tạp (nhập kho, chia đơn, đóng gói, đối chiếu phí ship theo từng hãng) thành luồng thao tác tối giản.",
+          "Tự làm toàn bộ website giới thiệu: định vị sản phẩm, nội dung, technical SEO, GTM/GA4 và luồng thu lead đăng ký seller."
+        ],
+        "alt": "Trang chủ shipstar.vn — nền tảng 3PL fulfillment xuyên biên giới"
+      },
+      {
+        "slug": "tpplasticusa",
+        "domain": "tpplasticusa.com",
+        "url": "https://tpplasticusa.com",
+        "image": "assets/img/work-tpplasticusa.webp",
+        "meta": "3 tháng · 1 người · Toàn bộ dự án",
+        "desc": "Website doanh nghiệp B2B mở thị trường xuất khẩu Mỹ, làm từ con số 0.",
+        "bullets": [
+          "Technical SEO cho tìm kiếm quốc tế: cấu trúc site, metadata, internal link.",
+          "Chatbot sàng lọc khách 24/7, giữ lại các lượt hỏi ngoài giờ trước đây bị mất do lệch múi giờ Việt Nam – Mỹ.",
+          "Tracking GTM/GA4 đầy đủ, truy được từng lượt hỏi hàng về đúng kênh nguồn.",
+          "Landing page hướng chuyển đổi và form hỏi hàng tinh giản cho khách B2B."
+        ],
+        "alt": "Trang chủ tpplasticusa.com — website B2B sản xuất bao bì nhựa"
+      },
+      {
+        "slug": "obbgel",
+        "domain": "obbgel.com",
+        "url": "https://obbgel.com",
+        "image": "assets/img/work-obbgel.webp",
+        "meta": "1 tháng · 1 người · Thiết kế & Dựng",
+        "desc": "Website sản phẩm định vị cao cấp, nơi phần thiết kế phải đỡ được mức giá bán.",
+        "bullets": [
+          "Tự thiết kế toàn bộ hệ thống thị giác bằng Photoshop: layout, banner, hình sản phẩm.",
+          "Dựng responsive chuẩn pixel, giữ trọn bố cục từ 320px đến desktop màn rộng.",
+          "Tổ chức điều hướng dẫn khách về trang sản phẩm và liên hệ, cắt các nhánh gây phân tán.",
+          "Toàn bộ ấn phẩm làm in-house, chi phí thiết kế thuê ngoài bằng 0."
+        ],
+        "alt": "Trang chủ obbgel.com — website sản phẩm định vị cao cấp"
+      },
+      {
+        "slug": "oceantrading",
+        "domain": "oceantradingexpress.com",
+        "url": "https://oceantradingexpress.com",
+        "image": "assets/img/work-oceantrading.webp",
+        "meta": "1 tháng · 1 người · Landing page",
+        "desc": "Landing page chuyển đổi cho dịch vụ thương mại quốc tế.",
+        "bullets": [
+          "Chuyển danh mục dịch vụ phức tạp thành kiến trúc thông tin bằng icon, khách quét hiểu trong dưới một phút.",
+          "Tối ưu vị trí và thứ bậc CTA để khách liên hệ ngay trong màn hình đầu tiên.",
+          "Tích hợp Zalo, email và điện thoại để rút ngắn thời gian phản hồi.",
+          "Thẩm mỹ hướng uy tín, hiệu chỉnh cho đối tác thương mại quốc tế."
+        ],
+        "alt": "Landing page oceantradingexpress.com — dịch vụ thương mại quốc tế"
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "NĂNG LỰC",
+    "title": "Năng lực chuyên môn",
+    "groups": [
+      {
+        "label": "Quảng cáo & Đo lường",
+        "items": [
+          "Meta Ads",
+          "Google Ads (Search, Display)",
+          "GA4",
+          "Google Tag Manager",
+          "Looker Studio",
+          "Search Console",
+          "CTR / CPC / CPA / ROAS",
+          "A/B testing"
+        ]
+      },
+      {
+        "label": "SEO & Website",
+        "items": [
+          "Technical SEO (Core Web Vitals, metadata, cấu trúc site)",
+          "On-page SEO",
+          "SEO đa thị trường",
+          "WordPress",
+          "HTML / CSS",
+          "Responsive mobile-first",
+          "Chatbot & form thu lead"
+        ]
+      },
+      {
+        "label": "Hệ thống vận hành",
+        "items": [
+          "Zoho",
+          "Odoo",
+          "MISA",
+          "Shipstar (nền tảng nội bộ công ty tự phát triển)",
+          "Pipeline & phân phối lead",
+          "Báo cáo phễu bán hàng"
+        ]
+      },
+      {
+        "label": "Thiết kế",
+        "items": [
+          "Adobe Photoshop",
+          "Banner & ấn phẩm social",
+          "Premiere Pro",
+          "CapCut",
+          "Bộ nhận diện thương hiệu"
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "KINH NGHIỆM",
+    "title": "Kinh nghiệm làm việc",
+    "roles": [
+      {
+        "period": "03/2024 – nay",
+        "title": "Digital Marketing Executive",
+        "company": "TP Plastic",
+        "type": "Toàn thời gian",
+        "nested": false
+      },
+      {
+        "period": "06–08/2026",
+        "title": "Product & Web (Shipstar)",
+        "company": "TP Plastic",
+        "type": "Dự án nội bộ, kiêm nhiệm",
+        "nested": true
+      },
+      {
+        "period": "06/2023 – 12/2023",
+        "title": "Software Deployment Staff",
+        "company": "NINA",
+        "type": "Toàn thời gian",
+        "nested": false
+      },
+      {
+        "period": "12/2022 – 03/2023",
+        "title": "Front-end Developer",
+        "company": "MYVINA",
+        "type": "Thực tập",
+        "nested": false
+      },
+      {
+        "period": "05/2022 – 10/2022",
+        "title": "Website Administrator",
+        "company": "DEEP VIETNAM",
+        "type": "Bán thời gian",
+        "nested": false
+      }
+    ],
+    "education": {
+      "label": "Học vấn",
+      "degree": "Cử nhân Kỹ thuật Phần mềm",
+      "school": "Đại học Ngoại ngữ – Tin học TP.HCM (HUFLIT)",
+      "period": "2019 – 2023"
+    }
+  },
+  "about": {
+    "eyebrow": "GIỚI THIỆU",
+    "title": "Giới thiệu",
+    "body": "Tôi học kỹ thuật phần mềm rồi chuyển sang marketing. Nghĩa là việc gì tự làm được thì tôi không đưa cho người khác. Phần tôi thích nhất nằm ở chỗ giáp ranh giữa marketing và sản phẩm — như khi làm Shipstar, tôi ngồi cùng những người trực tiếp đóng hàng và biến một quy trình dài dòng thành thứ họ dùng được bằng một tay trên điện thoại. Thứ tôi làm tốt là làm cho tầng kỹ thuật chạy được để tầng marketing có chỗ đứng: technical SEO sửa đúng chỗ đang hỏng thay vì sửa chỗ dễ báo cáo, tracking trả lời được kênh nào chốt đơn, landing page làm cho người mua chứ không làm cho bản brief.",
+    "portraitAlt": "Ảnh chân dung Nguyễn Thái Vinh"
+  },
+  "contact": {
+    "eyebrow": "LIÊN HỆ",
+    "title": "Đang tìm vị trí Digital Marketing / Growth",
+    "sub": "Ưu tiên B2B, xuyên biên giới, hoặc bất cứ mảng nào bán vào thị trường Mỹ.",
+    "emailLabel": "Email",
+    "email": "thaivinhnguyen088@gmail.com",
+    "phoneLabel": "Điện thoại",
+    "phone": "0967 761 109",
+    "phoneHref": "tel:+84967761109",
+    "linkedinLabel": "LinkedIn",
+    "linkedin": "linkedin.com/in/thaivinhnguyen",
+    "linkedinUrl": "https://www.linkedin.com/in/thaivinhnguyen/",
+    "locationLabel": "Khu vực",
+    "location": "TP. Hồ Chí Minh · On-site, Hybrid, Remote"
+  },
+  "cv": "assets/cv/CV-NguyenThaiVinh-VI.pdf",
+  "footer": "© 2026 Nguyễn Thái Vinh",
+  "ui": {
+    "skip": "Bỏ qua, tới nội dung",
+    "menu": "Menu",
+    "proof": "Chứng minh"
+  }
+}

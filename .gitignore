@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vercel/
+.env*
+.DS_Store
+*.log
+
+# Bàn giao giữa các phiên làm việc, không thuộc nội dung site
+HANDOFF.md
+
+# CV may đo theo từng tin tuyển dụng, không deploy lên site
+cv-tailored/
+
+# Workspace của superpowers (ledger, brief)
+.superpowers/

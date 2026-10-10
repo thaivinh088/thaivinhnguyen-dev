@@ -1,0 +1,57 @@
+/* ─────────────────────────────────────────────────────────────
+   tokens.css — palette, type, spacing.
+   Sửa màu và cỡ chữ ở đây, không rải giá trị lẻ trong file khác.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: dark;
+
+  /* Palette — Mục 3.2 của brief.
+     --accent-warm CHỈ dùng cho con số và nhãn dữ liệu. */
+  --ground:      #0B1720;
+  --surface:     #122430;
+  --surface-2:   #1A3140;
+  --line:        #21404F;
+  --ink:         #EAF2F6;
+  --ink-muted:   #93AAB8;
+  --accent:      #3FB6C8;
+  --accent-warm: #E8A33D;
+  --white:       #FFFFFF;
+
+  /* Dẫn xuất — nền nhấn rất nhạt và viền sáng khi hover/focus */
+  --accent-dim:  rgba(63, 182, 200, 0.14);
+  --accent-line: rgba(63, 182, 200, 0.42);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+
+  /* Typography */
+  --font-display: 'Chivo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body:    'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, 'Cascadia Mono', Consolas, 'Liberation Mono', monospace;
+
+  --fs-body:    17px;
+  --lh-body:    1.65;
+  --fs-mono:    12px;
+  --fs-mono-sm: 11px;
+  --fs-h2:      clamp(28px, 3.6vw, 34px);
+  --fs-h3:      20px;
+  --fs-name:    clamp(44px, 9vw, 104px);
+  --fs-lead:    clamp(22px, 3.4vw, 34px);
+
+  --measure: 68ch;      /* dòng chữ rộng tối đa */
+
+  /* Layout */
+  --maxw:    1200px;
+  --pad:     24px;
+  --section: 96px;
+  --radius:  4px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --pad: 20px;
+    --section: 64px;
+  }
+}

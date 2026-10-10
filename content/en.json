@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "title": "Nguyen Thai Vinh — Digital Marketing Executive",
+    "description": "A marketer who builds the websites, wires up the tracking, then runs the campaigns. Currently running 8 websites and 11 social channels at TP Plastic."
+  },
+  "nav": {
+    "how": "How I work",
+    "work": "Work",
+    "skills": "Capabilities",
+    "experience": "Experience",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "NGUYEN THAI VINH",
+    "role": "Digital Marketing Executive · Web & Growth",
+    "statement": "I build the website, wire up the tracking, then run the campaigns that fill it.",
+    "sub": "A software engineer who moved into marketing. 2+ years owning the complete digital funnel for a B2B plastics manufacturer opening the US market — no agency, no dev team.",
+    "ctaPrimary": "See the work",
+    "ctaSecondary": "Download CV (PDF)",
+    "stats": [
+      {
+        "value": "8",
+        "label": "websites managed"
+      },
+      {
+        "value": "11",
+        "label": "social channels"
+      },
+      {
+        "value": "4",
+        "label": "business systems"
+      },
+      {
+        "value": "$1,000+",
+        "label": "monthly ad budget"
+      }
+    ]
+  },
+  "layers": {
+    "eyebrow": "HOW I WORK",
+    "title": "Three layers I own myself",
+    "intro": "Most marketers work only on the third layer and depend on someone else for the first two. I do all three, so nothing waits on a handoff.",
+    "items": [
+      {
+        "id": "build",
+        "name": "BUILD",
+        "desc": "Build the site from information architecture and copy through WordPress, technical SEO and launch.",
+        "tools": [
+          "WordPress",
+          "HTML / CSS",
+          "Technical SEO",
+          "Core Web Vitals",
+          "Responsive mobile-first"
+        ],
+        "proof": "tpplasticusa.com, obbgel.com, oceantradingexpress.com"
+      },
+      {
+        "id": "measure",
+        "name": "MEASURE",
+        "desc": "Wire up measurement that answers which channel closed the deal, not just which one got the click.",
+        "tools": [
+          "Google Tag Manager",
+          "GA4",
+          "Looker Studio",
+          "Search Console",
+          "Zoho",
+          "Odoo",
+          "MISA"
+        ],
+        "proof": "TP Plastic's first measurement stack"
+      },
+      {
+        "id": "acquire",
+        "name": "ACQUIRE",
+        "desc": "Run the ads and content that drive traffic into the pages I built and instrumented.",
+        "tools": [
+          "Meta Ads",
+          "Google Ads (Search, Display)",
+          "A/B testing",
+          "CTR / CPC / CPA / ROAS"
+        ],
+        "proof": "35% lift in lead conversion rate"
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "SELECTED WORK",
+    "title": "Selected work",
+    "viewSite": "View site",
+    "projects": [
+      {
+        "slug": "shipstar",
+        "domain": "shipstar.vn",
+        "url": "https://shipstar.vn",
+        "image": "assets/img/work-shipstar.webp",
+        "meta": "06–08/2026 · Team of 3 · Product & Web",
+        "desc": "A cross-border 3PL fulfilment platform, Vietnam → US: inbound receiving, pick & pack, multi-carrier labels, customs, cost reconciliation and seller portals.",
+        "bullets": [
+          "Designed the UI/UX and built the front end for the seller portal, shipping-label flow and warehouse screens.",
+          "Mobile-first by necessity: warehouse staff work from a phone while packing boxes.",
+          "Redesigned the warehouse operating flows — receiving, order splitting, packing, per-carrier cost reconciliation — into something runnable one-handed.",
+          "Delivered the marketing site solo: positioning, copy, technical SEO, GTM/GA4 and the seller sign-up funnel."
+        ],
+        "alt": "shipstar.vn homepage — cross-border 3PL fulfilment platform"
+      },
+      {
+        "slug": "tpplasticusa",
+        "domain": "tpplasticusa.com",
+        "url": "https://tpplasticusa.com",
+        "image": "assets/img/work-tpplasticusa.webp",
+        "meta": "3 months · Team of 1 · Whole project",
+        "desc": "A B2B corporate site built to open the US export market from a standing start.",
+        "bullets": [
+          "Technical SEO for international search: site architecture, metadata, internal linking.",
+          "A 24/7 chatbot that captures after-hours inquiries previously lost to the Vietnam–US timezone gap.",
+          "Full GTM/GA4 tracking, tying every inquiry back to the channel that produced it.",
+          "Conversion-focused landing pages and simplified inquiry forms for B2B buyers."
+        ],
+        "alt": "tpplasticusa.com homepage — B2B plastic packaging manufacturer site"
+      },
+      {
+        "slug": "obbgel",
+        "domain": "obbgel.com",
+        "url": "https://obbgel.com",
+        "image": "assets/img/work-obbgel.webp",
+        "meta": "1 month · Team of 1 · Design & Build",
+        "desc": "A premium product site where the design had to carry the price point.",
+        "bullets": [
+          "Designed the full visual system in Photoshop: layout, banners, product imagery.",
+          "Pixel-accurate responsive build holding its composition from 320px to widescreen.",
+          "Navigation structured toward product and contact pages, cutting branches that split attention.",
+          "Every asset produced in-house, with zero external design spend."
+        ],
+        "alt": "obbgel.com homepage — premium product website"
+      },
+      {
+        "slug": "oceantrading",
+        "domain": "oceantradingexpress.com",
+        "url": "https://oceantradingexpress.com",
+        "image": "assets/img/work-oceantrading.webp",
+        "meta": "1 month · Team of 1 · Landing page",
+        "desc": "A conversion landing page for an international trading service.",
+        "bullets": [
+          "Turned a complex service list into an icon-led information architecture scannable in under a minute.",
+          "Optimised CTA placement and hierarchy so contact is possible from the first screen.",
+          "Integrated Zalo, email and phone to shorten response time.",
+          "A credibility-first aesthetic calibrated for international trading partners."
+        ],
+        "alt": "oceantradingexpress.com landing page — international trading service"
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "CAPABILITIES",
+    "title": "Capabilities",
+    "groups": [
+      {
+        "label": "Paid Media & Analytics",
+        "items": [
+          "Meta Ads",
+          "Google Ads (Search, Display)",
+          "GA4",
+          "Google Tag Manager",
+          "Looker Studio",
+          "Search Console",
+          "CTR / CPC / CPA / ROAS",
+          "A/B testing"
+        ]
+      },
+      {
+        "label": "SEO & Web",
+        "items": [
+          "Technical SEO (Core Web Vitals, metadata, site architecture)",
+          "On-page SEO",
+          "International SEO",
+          "WordPress",
+          "HTML / CSS",
+          "Responsive mobile-first",
+          "Chatbot & lead forms"
+        ]
+      },
+      {
+        "label": "Business Systems",
+        "items": [
+          "Zoho",
+          "Odoo",
+          "MISA",
+          "Shipstar (the company's own in-house platform)",
+          "Lead pipeline & routing",
+          "Sales-funnel reporting"
+        ]
+      },
+      {
+        "label": "Creative",
+        "items": [
+          "Adobe Photoshop",
+          "Banner & social design",
+          "Premiere Pro",
+          "CapCut",
+          "Brand identity assets"
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "EXPERIENCE",
+    "title": "Experience",
+    "roles": [
+      {
+        "period": "03/2024 – Present",
+        "title": "Digital Marketing Executive",
+        "company": "TP Plastic",
+        "type": "Full-time",
+        "nested": false
+      },
+      {
+        "period": "06–08/2026",
+        "title": "Product & Web (Shipstar)",
+        "company": "TP Plastic",
+        "type": "Internal project, concurrent",
+        "nested": true
+      },
+      {
+        "period": "06/2023 – 12/2023",
+        "title": "Software Deployment Staff",
+        "company": "NINA",
+        "type": "Full-time",
+        "nested": false
+      },
+      {
+        "period": "12/2022 – 03/2023",
+        "title": "Front-end Developer",
+        "company": "MYVINA",
+        "type": "Internship",
+        "nested": false
+      },
+      {
+        "period": "05/2022 – 10/2022",
+        "title": "Website Administrator",
+        "company": "DEEP VIETNAM",
+        "type": "Part-time",
+        "nested": false
+      }
+    ],
+    "education": {
+      "label": "Education",
+      "degree": "Bachelor of Software Engineering",
+      "school": "HUFLIT, Ho Chi Minh City",
+      "period": "2019 – 2023"
+    }
+  },
+  "about": {
+    "eyebrow": "ABOUT",
+    "title": "About",
+    "body": "I trained as a software engineer and moved into marketing, which means I don't hand off work I can do myself. The part I like most sits between marketing and product — on Shipstar I sat with the people who actually pack the boxes and turned a long, messy process into something they can run one-handed. What I'm good at is making the technical layer work so the marketing layer can: technical SEO that fixes what is genuinely broken rather than what is easy to report, tracking that answers which channel closed the deal, and landing pages built for the buyer instead of for the brief.",
+    "portraitAlt": "Portrait of Nguyen Thai Vinh"
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "Open to Digital Marketing / Growth roles",
+    "sub": "Ideally B2B, cross-border, or anything selling into the US market.",
+    "emailLabel": "Email",
+    "email": "thaivinhnguyen088@gmail.com",
+    "phoneLabel": "Phone",
+    "phone": "+84 967 761 109",
+    "phoneHref": "tel:+84967761109",
+    "linkedinLabel": "LinkedIn",
+    "linkedin": "linkedin.com/in/thaivinhnguyen",
+    "linkedinUrl": "https://www.linkedin.com/in/thaivinhnguyen/",
+    "locationLabel": "Location",
+    "location": "Ho Chi Minh City · On-site, Hybrid, Remote"
+  },
+  "cv": "assets/cv/CV-NguyenThaiVinh-EN.pdf",
+  "footer": "© 2026 Nguyen Thai Vinh",
+  "ui": {
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "proof": "Proof"
+  }
+}
