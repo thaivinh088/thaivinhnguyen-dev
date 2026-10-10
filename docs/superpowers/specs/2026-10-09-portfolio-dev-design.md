@@ -51,7 +51,7 @@ Phương án B (thêm khối sơ đồ kiến trúc) để sau, ngoài phạm vi
 |---|---|
 | Shipstar | Tạm: trang chủ shipstar.vn. Thay bằng ảnh copilot / soạn listing **người dùng tự chụp và che dữ liệu** khi có |
 | MIA Platform | Chụp miaai.vn |
-| MIA Agent | Tạm: trang giới thiệu MIA Agent trên miaai.vn nếu có; nếu không có, ảnh nền tối kèm wordmark "MIA Agent" (không phải ảnh giả giao diện). Thay bằng ảnh cửa sổ app khi người dùng gửi |
+| MIA Agent | Ảnh chụp màn hình chính app desktop thật, người dùng gửi 2026-10-10 (đã cắt viền cửa sổ) |
 | Tinh Hoa | Chụp tinhhoa.tech |
 
 ### 3.4 CV

@@ -30,7 +30,7 @@ Hai file JSON phải có **cùng bộ key**; `npm run build` sẽ báo nếu l�
 |---|---|
 | `npm run build` | Sinh `index.html`, `sitemap.xml`, `robots.txt` |
 | `npm run fonts` | Tải woff2 từ Google Fonts về `assets/fonts/`, sinh `styles/fonts.css` |
-| `npm run shots` | Chụp lại ảnh 4 dự án → `assets/img/work-*.webp` |
+| `npm run shots` | Chụp lại ảnh 3 website dự án → `assets/img/work-*.webp` |
 | `npm run brand` | Sinh `og-image.jpg`, `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` |
 | `npm test` | Kiểm nội dung, build, ảnh, CV, tương phản và runtime trên Chromium (chạy sau `npm run build`) |
 
@@ -44,9 +44,10 @@ npm install
 npx playwright install chromium
 ```
 
-Bốn slug ảnh: `shipstar` (shipstar.vn), `mia` (miaai.vn), `mia-agent` (khối
-`#h-app` "Trợ lý chạy ngay trên máy tính của bạn" trên miaai.vn), `tinhhoa`
-(tinhhoa.tech). `npm run shots -- mia-agent` để chụp lại một slug. **Mở ảnh ra xem
+Ba slug chụp tự động: `shipstar` (shipstar.vn), `mia` (miaai.vn), `tinhhoa`
+(tinhhoa.tech). `npm run shots -- mia` để chụp lại một slug. Ảnh thứ tư
+`work-mia-agent` là **ảnh chụp app desktop thật** do owner gửi (2026-10-10), cắt bỏ
+viền cửa sổ rồi xuất 1440/720 bằng sharp — không nằm trong `shots.mjs`. **Mở ảnh ra xem
 bằng mắt trước khi commit** — ảnh trắng hoặc dính popup thì chụp lại. Script đã ẩn
 sẵn popup cookie, bong bóng chat và hai nút nổi của miaai.vn; context chụp bật
 `bypassCSP` vì miaai.vn chặn style chèn vào.
@@ -55,10 +56,10 @@ sẵn popup cookie, bong bóng chat và hai nút nổi của miaai.vn; context c
 
 Cả hai thứ dưới đây nằm ở **một chỗ duy nhất**: [`site.config.mjs`](site.config.mjs).
 
-0. **Ảnh thật cho hai thẻ.** Thẻ Shipstar đang dùng trang chủ shipstar.vn, thẻ MIA
-   Agent dùng ảnh minh hoạ trên miaai.vn. Khi có ảnh chụp màn copilot / soạn listing
-   của Shipstar (**che tên khách, giá, tồn kho trước**) hoặc cửa sổ app MIA Agent,
-   xuất ra `work-{slug}.webp` (1440 rộng) và `work-{slug}-720.webp`, rồi build.
+0. **Ảnh thật cho thẻ Shipstar.** Thẻ đang dùng trang chủ shipstar.vn. Khi có ảnh
+   chụp màn copilot / soạn listing (**che tên khách, giá, tồn kho trước**), xuất ra
+   `work-shipstar.webp` (1440 rộng) và `work-shipstar-720.webp`, bỏ `shipstar` khỏi
+   `shots.mjs`, rồi build.
 1. **Domain.** Đã điền: `https://thaivinhnguyen-dev.vercel.app`. Hai CV trong
    `assets/cv/` cũng in link này — đổi domain thì render lại CV. Khi mua domain riêng
    thì đổi đúng dòng đó, chạy `npm run build`, push, rồi thêm domain trong Vercel —

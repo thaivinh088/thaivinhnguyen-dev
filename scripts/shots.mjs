@@ -1,5 +1,6 @@
 /**
- * Chụp ảnh 4 dự án (3 website + khối app MIA Agent trên miaai.vn) -> assets/img/work-{slug}.webp
+ * Chụp ảnh 3 website dự án -> assets/img/work-{slug}.webp
+ * (ảnh thứ tư, work-mia-agent, là ảnh chụp app thật — xem README)
  *
  *   npm i -D playwright sharp
  *   npx playwright install chromium
@@ -8,7 +9,7 @@
  * Chạy lại được mỗi khi các site kia đổi thiết kế.
  * BẮT BUỘC: mở 4 ảnh ra xem bằng mắt trước khi commit.
  *
- * Chụp một site: npm run shots -- mia-agent
+ * Chụp một site: npm run shots -- mia
  */
 import { chromium } from 'playwright';
 import sharp from 'sharp';
@@ -32,15 +33,8 @@ const SITES = [
     // Nút nổi "Liên hệ tư vấn" và "Dừng hiệu ứng" ở góc phải dưới.
     hide: ['button[aria-label="Liên hệ tư vấn"]', '[class*="_toggle_egmzx"]'],
   },
-  {
-    slug: 'mia-agent',
-    url: 'https://miaai.vn',
-    // Khối "Trợ lý chạy ngay trên máy tính của bạn" giới thiệu app desktop MIA Agent.
-    scrollTo: '#h-app',
-    scrollOffset: 150, // header dính của miaai.vn cao hơn mặc định
-    wait: 3500,
-    hide: ['button[aria-label="Liên hệ tư vấn"]', '[class*="_toggle_egmzx"]'],
-  },
+  // mia-agent: ảnh chụp app desktop thật do owner gửi, KHÔNG chụp tự động —
+  // đừng thêm lại vào đây kẻo `npm run shots` ghi đè.
   { slug: 'tinhhoa', url: 'https://tinhhoa.tech', wait: 3500, hide: [] },
 ];
 

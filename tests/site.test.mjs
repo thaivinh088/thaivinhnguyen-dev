@@ -30,12 +30,17 @@ test('content: en và vi cùng bộ key', async () => {
 
 export const SLUGS = ['shipstar', 'mia', 'mia-agent', 'tinhhoa'];
 
-test('ảnh: đủ 8 file webp cho 4 slug', async () => {
+test('ảnh: đủ 8 file webp cho 4 slug, đúng cỡ, không phải ảnh trơn', async () => {
+  // Kiểm cỡ và độ biến thiên điểm ảnh thay cho dung lượng: ảnh app nền tối nén
+  // xuống < 10KB vẫn hợp lệ, còn ảnh trắng / chụp hỏng thì gần như không biến thiên.
+  const { default: sharp } = await import('sharp');
   for (const slug of SLUGS) {
-    for (const suffix of ['', '-720']) {
-      const file = `assets/img/work-${slug}${suffix}.webp`;
-      const size = (await stat(p(file)).catch(() => ({ size: 0 }))).size;
-      assert.ok(size > 10 * 1024, `${file} thiếu hoặc quá nhỏ (${size} byte)`);
+    for (const [suffix, width] of [['', 1440], ['-720', 720]]) {
+      const file = p(`assets/img/work-${slug}${suffix}.webp`);
+      const meta = await sharp(file).metadata().catch(() => ({}));
+      assert.equal(meta.width, width, `work-${slug}${suffix}.webp thiếu hoặc sai cỡ`);
+      const { channels } = await sharp(file).stats();
+      assert.ok(channels[0].stdev > 8, `work-${slug}${suffix}.webp gần như trơn (stdev ${channels[0].stdev.toFixed(1)})`);
     }
   }
 });
