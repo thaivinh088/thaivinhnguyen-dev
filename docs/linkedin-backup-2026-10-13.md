@@ -28,3 +28,13 @@ Dự án nội bộ, kiêm nhiệm song song với vị trí Digital Marketing E
 - Open to work, Job titles: System Administrator · Full Stack Engineer
 - Contact info, Website (Portfolio): https://thaivinhnguyen.vercel.app
 - Featured: thẻ "Nguyen Thai Vinh — Digital Marketing Executive" (link portfolio marketing) — vẫn giữ, nằm dưới thẻ mới
+- Experience TP Plastic, chức danh: Digital Marketing Executive (đổi thành "Digital Marketing & System Admin" ngày 2026-10-13)
+
+## Mô tả cũ: TP Plastic, Digital Marketing Executive (trước khi đưa dòng quản trị hệ thống lên đầu)
+Nhà sản xuất nhựa B2B mở rộng từ phân phối nội địa sang thị trường xuất khẩu Mỹ. Phụ trách toàn bộ digital marketing và triển khai website — không qua agency, không có đội dev hỗ trợ.
+
+• Phụ trách 8 website và 11 kênh social của công ty: tự làm tpplasticusa.com, usa2vn.com, obbgel.com và oceantradingexpress.com từ cấu trúc thông tin, nội dung, dựng WordPress, technical SEO (Core Web Vitals, metadata) đến launch.
+• Quản lý Meta & Google Ads (Search, Display) ngân sách $1.000+/tháng: nâng tỷ lệ chuyển đổi lead 35% thông qua tối ưu tệp đối tượng, nội dung quảng cáo và landing page.
+• Xây hệ thống đo lường GTM + GA4 + Looker Studio lần đầu cho công ty, giúp đội sales thấy rõ kênh nào tạo ra đơn chốt thay vì chỉ đếm lượt click.
+• Quản trị 4 hệ thống vận hành — Zoho, Odoo, MISA và Shipstar (nền tảng nội bộ do công ty tự phát triển): tiếp nhận lead, lọc trùng, thiết kế các giai đoạn pipeline và làm sạch dữ liệu bán hàng.
+• Tự sản xuất toàn bộ ấn phẩm in-house bằng Photoshop, Premiere Pro và CapCut — banner, hình sản phẩm, video ngắn — giữ một hệ nhận diện thống nhất trên web, quảng cáo và social.
